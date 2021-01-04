@@ -1,0 +1,394 @@
+<!-- 博文的布局-Layout -->
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 引入head标签 -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-sclable=0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="description" content="白日梦想家" />
+<meta name="keywords" content="skiwngs, feiyu, webDeveloper, blog, Blog" />
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/media.css">
+<link rel="stylesheet" href="/assets/css/animate.min.css">
+<link rel="stylesheet" href="/assets/css/pygments/pygments_default.css">
+<link rel="stylesheet" href="/assets/css/github-markdown.css">
+<!-- SNS-icon -->
+<script src="//at.alicdn.com/t/font_856428_y9z6nq7zf5.js"></script>
+<!-- share.css -->
+<link rel="stylesheet" href="/assets/css/share.min.css">
+<!-- font -->
+<link rel="stylesheet" href="/assets/css/font.css">
+<!-- <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Pacifico|Ubuntu|Roboto+Mono|Source+Sans+Pro" rel="stylesheet"> -->
+
+<!-- Favicon -->
+<link href="/assets/profile.jpeg" rel="shortcut icon" />
+<link href="/assets/profile.jpeg" rel="apple-touch-icon-precomposed" />
+<!-- Android Lolipop Theme Color -->
+<!-- <meta name="theme-color" content="#1464FB"> -->
+<title>webpack的基本配置与使用</title>
+<!-- 百度统计 -->
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!-- 谷歌分析 -->
+
+
+<!-- Android Lolipop Theme Color -->
+<meta name="theme-color" content=" rgb(255,210,32) ">
+</head>
+<body>
+
+<!-- 顶部锚点 -->
+<a id="htmlup" name="htmlup"></a>
+<!-- 引入博文顶部选项 -->
+
+<header id="post-header" style="background-color:rgb(255,210,32);">
+  <div class="top-center">
+      <div class="logo">
+          <a href="/" title="my awesome webtitle" style="color: white;">白日</a>
+      </div>
+      <nav class="top-nav">
+          <ul>
+              
+                <li><a href="/" style="color: white;">首页</a></li>
+              
+                <li><a href="/tags.html" style="color: white;">标签</a></li>
+              
+                <li><a href="/timeline.html" style="color: white;">时间线</a></li>
+              
+                <li><a href="/about.html" style="color: white;">关于博主</a></li>
+              
+                <li><a href="/friendLink.html" style="color: white;">友情链接</a></li>
+              
+          </ul>
+      </nav>
+      <div id="top-boot">
+        <a href="javascript:;" id="boot1" style="display:block;" onclick="document.getElementById('boot-area').style.display='block';document.getElementById('boot1').style.display='none';document.getElementById('boot2').style.display='block';"><img src="/assets/boot_white.png" alt=""></a>
+        <a href="javascript:;" id="boot2" style="display: none;" onclick="document.getElementById('boot-area').style.display='none';document.getElementById('boot1').style.display='block';document.getElementById('boot2').style.display='none';"><img src="/assets/boot_white.png" alt=""></a>
+      </div>
+  </div>
+
+</header>
+
+
+<!-- 引入移动下拉选项 -->
+<div id="boot-area">
+    <ul>
+        
+          <a href="/"><li>首页</li></a>
+        
+          <a href="/tags.html"><li>标签</li></a>
+        
+          <a href="/timeline.html"><li>时间线</li></a>
+        
+          <a href="/about.html"><li>关于博主</li></a>
+        
+          <a href="/friendLink.html"><li>友情链接</li></a>
+        
+    </ul>
+</div>
+
+<!-- 引入博文顶部样式 -->
+<!-- 版本一 垃圾 -->
+<!-- <div class="wow fadeIn top" data-wow-duration="3.5s" >
+    <span class="wow fadeInUp" data-wow-delay="0.2s">webpack的基本配置与使用</span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s"></span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s"></span>
+    <span class="wow fadeInUp" data-wow-delay="0.6s">作者&nbsp;&nbsp;|&nbsp;&nbsp;feiYu</span>
+</div> -->
+
+<!-- 版本二 可切换页面 -->
+
+<div class="post-top" style="background-color:rgb(255,210,32);">
+  <!-- 页面宽度大于800px -->
+  <div class="left-area">
+    
+      <a href="/2020/05/18/%E6%88%91%E4%BB%AC%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E4%BD%BF%E7%94%A8Webpack.html" class="btn bounceInLeft animated" onmouseover="showLeft();this.style.color='rgb(255,210,32)';" onmouseout="goneLeft();this.style.color='rgba(0,0,0,.2)';"><</a>
+      <div id="left-tab" style="display:none;"><span class="left-san"></span><span class="left-main" style="color:rgb(255,210,32);"><sapn class="main">为什么要用Webpack</sapn></span></div>
+    
+  </div>
+  <div class="post-titlearea">
+    <span class="wow fadeInUp" data-wow-delay="0.2s">webpack的基本配置与使用</span>
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.4s"></span> -->
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.4s"></span> -->
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.6s">作者&nbsp;&nbsp;|&nbsp;&nbsp;feiYu</span> -->
+  </div>
+  <div class="right-area">
+    
+      <a href="/2020/05/18/%E5%BE%AA%E7%8E%AF%E7%BB%91%E5%AE%9A%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BB%93.html" class="btn bounceInRight self-animated" onmouseover="showRight();this.style.color='rgb(255,210,32)';" onmouseout="goneRight();this.style.color='rgba(0,0,0,.2)';">></a>
+      <div id="right-tab" style="display:none;"><span class="right-san"></span><span class="right-main" style="color:rgb(255,210,32);"><sapn class="main">循环绑定事件</sapn></span></div>
+    
+  </div>
+
+  <!-- 页面宽度小于800px -->
+  <div class="post-changearea">
+    
+      <a href="/2020/05/18/%E6%88%91%E4%BB%AC%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E4%BD%BF%E7%94%A8Webpack.html" class="leftchange" style="border-right: 1px solid rgb(255,210,32);border-bottom: 2px solid rgb(255,210,32);"><span>上一篇<br><br>为什么要用Webpack</span></a>
+    
+    
+      <a href="/2020/05/18/%E5%BE%AA%E7%8E%AF%E7%BB%91%E5%AE%9A%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BB%93.html" class="rightchange" style="border-left: 1px solid rgb(255,210,32);border-bottom: 2px solid rgb(255,210,32);"><span>下一篇<br><br>循环绑定事件</span></a>
+    
+  </div>
+</div>
+
+
+<div class="markdown-body fadeInUp animated">
+
+  
+    
+      <div class="postpage-subtitle" style="border-left: 8px solid rgb(255,210,32); border-right: 8px solid rgb(255,210,32)">
+        webpack的基本配置与使用
+      </div>
+    
+  
+
+  <!-- 文章内容 -->
+  <h3 id="四个核心">四个核心</h3>
+
+<ul>
+  <li>入口（entry）</li>
+  <li>输出（output）</li>
+  <li>loder</li>
+  <li>插件（plugins）</li>
+</ul>
+
+<blockquote>
+  <h4 id="entry入口">Entry(入口)</h4>
+</blockquote>
+
+<p>entry告诉webpack应该用那个模块来作为构建其内部依赖图的开始。当进入入口后，webpack会找出哪些模块和库是入口部分所依赖的。每个依赖性被编译，最后输出到bundle文件中。</p>
+
+<blockquote>
+  <h4 id="output出口">Output(出口)</h4>
+</blockquote>
+
+<p>output属性告诉webpack在哪里输出创建的bundles，并且如何命名。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">expors</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">entry</span><span class="p">:</span> <span class="dl">"</span><span class="s2">./my/entry/files</span><span class="dl">"</span><span class="p">,</span> <span class="c1">//入口处</span>
+    <span class="na">output</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">path</span><span class="p">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">dirname</span><span class="p">,</span> <span class="dl">'</span><span class="s1">dist</span><span class="dl">'</span><span class="p">),</span> <span class="c1">//输出路径</span>
+        <span class="na">filename</span><span class="p">:</span> <span class="dl">"</span><span class="s2">myWebpack.bundle.js</span><span class="dl">"</span> <span class="c1">//输出文件名</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<blockquote>
+  <h4 id="loader">Loader</h4>
+</blockquote>
+
+<p>webpack自身只理解Js，loader的本质是将所有其他类型的文件转换成webpack能够进行处理的有效模块。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">path</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">output</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">filename</span><span class="p">:</span> <span class="dl">'</span><span class="s1">my-first-webpack.bundle.js</span><span class="dl">'</span>
+  <span class="p">},</span>
+  <span class="na">module</span><span class="p">:</span> <span class="p">{</span>  <span class="c1">//loader使用</span>
+    <span class="na">rules</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span> <span class="na">test</span><span class="p">:</span> <span class="sr">/</span><span class="se">\.</span><span class="sr">txt$/</span><span class="p">,</span> <span class="na">use</span><span class="p">:</span> <span class="dl">'</span><span class="s1">raw-loader</span><span class="dl">'</span> <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+</code></pre></div></div>
+
+<p>以上代码中的test与use属性告诉webpack哪个文件应该被哪个loader进行处理。也就是当在require（）/import语句中被解析为’.txt’路径时，需要用raw-loader进行处理。</p>
+
+<blockquote>
+  <h4 id="plugins插件">Plugins(插件)</h4>
+</blockquote>
+
+<p>插件的范围包括，从打包优化和压缩，一直到重新定义环境中的变量。<a href="https://www.webpackjs.com/api/plugins">插件接口</a>功能极其强大，可以用来处理各种各样的任务。</p>
+
+<blockquote>
+  <h4 id="模式">模式</h4>
+</blockquote>
+
+<p>通过选择 <code class="highlighter-rouge">development</code> 或 <code class="highlighter-rouge">production</code> 之中的一个，来设置 <code class="highlighter-rouge">mode</code> 参数，你可以启用相应模式下的 webpack 内置的优化</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">mode</span><span class="p">:</span> <span class="dl">'</span><span class="s1">production</span><span class="dl">'</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h3 id="webpack基本目录结构">Webpack基本目录结构</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>webpack-demo
+|- package.json
+|- webpack.config.js
+|- /dist
+  |- bundle.js
+  |- index.html
+|- /src
+  |- index.js
+|- /node_modules
+</code></pre></div></div>
+
+<h3 id="打包方式">打包方式</h3>
+
+<h4 id="cli">cli</h4>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npx webpack <span class="nt">--config</span> filename
+</code></pre></div></div>
+
+<h4 id="npm脚本">npm脚本</h4>
+
+<p>考虑到用cli运行webpack不是特别方便，可以在package.json添加一段npm脚本:</p>
+
+<p>package.json</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"webpack-demo"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"main"</span><span class="p">:</span><span class="w"> </span><span class="s2">"index.js"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"test"</span><span class="p">:</span><span class="w"> </span><span class="s2">"echo </span><span class="se">\"</span><span class="s2">Error: no test specified</span><span class="se">\"</span><span class="s2"> &amp;&amp; exit 1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"webpack"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"keywords"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"license"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ISC"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"devDependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"webpack"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^4.0.1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"webpack-cli"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^2.0.9"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"lodash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^4.17.5"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+
+  <!-- 引入share模块 -->
+  
+  <div class="social-share-wrapper">
+    <div class="social-share"></div>
+  </div>
+
+
+<!-- share.js -->
+<script src="/assets/js/social-share.min.js"></script>
+<script>
+  socialShare('.social-share', {
+    sites: [
+      
+        'qq'
+        ,
+        
+      
+        'wechat'
+        ,
+        
+      
+        'weibo'
+        ,
+        
+      
+        'twitter'
+        ,
+        
+      
+        'facebook'
+        
+      
+    ],
+    wechatQrcodeTitle: "分享到微信朋友圈",
+    wechatQrcodeHelper: '期待在朋友圈见到这篇文章'
+  });
+</script>
+
+</div>
+
+<!-- 底部锚点 -->
+<a id="htmldown" name="htmldown"></a>
+<!-- 引入评论模块 -->
+
+
+
+    <section class="post-footer-item comment">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDI2OS8xMDgwNg=="></div>
+    </section>
+
+    <!-- 来必力City版安装代码 -->
+    <script type="text/javascript">
+       (function(d, s) {
+           var j, e = d.getElementsByTagName(s)[0];
+
+           if (typeof LivereTower === 'function') { return; }
+
+           j = d.createElement(s);
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           e.parentNode.insertBefore(j, e);
+       })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    <!-- City版安装代码已完成 -->
+
+
+
+
+
+<!-- 引入goto模块 -->
+<div class="bounceInRight animated go">
+  <a title="顶部切换页面" class="gototop" href="#htmlup" target="_self">
+    <div class="box" style="font-family:'ffad_matroregular';">
+        Top
+    </div>
+  </a>
+  <a title="底部有livere评论哦" class="gotobottom" href="#htmldown" target="_self">
+    <div class="box" style="font-family:'ffad_matroregular';">
+        Foot
+    </div>
+  </a>
+</div>
+
+<!-- 引入页面底部模块 -->
+<footer id="bottom">
+  <br>
+  <span>绯羽的博客 ©
+  
+  
+    2018
+    -
+  
+  2020
+  <br>
+  Powered by <a href="https://www.jekyll.com.cn/">Jekyll</a> | <a href="https://github.com/xukimseven/HardCandy-Jekyll">HardCandy-Jekyll</a></span>
+</footer>
+
+
+<!-- 引用wow.js的动画效果 -->
+<script src="/assets/js/wow.js"></script>
+<script>
+    var wow = new WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        // offset: 600,
+        mobile: true,
+        live: true
+    });
+    wow.init();
+</script>
+<!-- 页面刷新回到顶部 -->
+<script>
+    window.onbeforeunload = function(){
+        //刷新后页面自动回到顶部
+        document.documentElement.scrollTop = 0;  //ie下
+        document.body.scrollTop = 0;  //非ie
+    }
+</script>
+<script src="/assets/js/main.js"></script>
+</body>
+</html>

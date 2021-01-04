@@ -1,0 +1,325 @@
+<!-- 博文的布局-Layout -->
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 引入head标签 -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-sclable=0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="description" content="白日梦想家" />
+<meta name="keywords" content="skiwngs, feiyu, webDeveloper, blog, Blog" />
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/media.css">
+<link rel="stylesheet" href="/assets/css/animate.min.css">
+<link rel="stylesheet" href="/assets/css/pygments/pygments_default.css">
+<link rel="stylesheet" href="/assets/css/github-markdown.css">
+<!-- SNS-icon -->
+<script src="//at.alicdn.com/t/font_856428_y9z6nq7zf5.js"></script>
+<!-- share.css -->
+<link rel="stylesheet" href="/assets/css/share.min.css">
+<!-- font -->
+<link rel="stylesheet" href="/assets/css/font.css">
+<!-- <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Pacifico|Ubuntu|Roboto+Mono|Source+Sans+Pro" rel="stylesheet"> -->
+
+<!-- Favicon -->
+<link href="/assets/profile.jpeg" rel="shortcut icon" />
+<link href="/assets/profile.jpeg" rel="apple-touch-icon-precomposed" />
+<!-- Android Lolipop Theme Color -->
+<!-- <meta name="theme-color" content="#1464FB"> -->
+<title>对于Es6中关于Async、await的理解</title>
+<!-- 百度统计 -->
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!-- 谷歌分析 -->
+
+
+<!-- Android Lolipop Theme Color -->
+<meta name="theme-color" content=" rgb(255,210,32) ">
+</head>
+<body>
+
+<!-- 顶部锚点 -->
+<a id="htmlup" name="htmlup"></a>
+<!-- 引入博文顶部选项 -->
+
+<header id="post-header" style="background-color:rgb(255,210,32);">
+  <div class="top-center">
+      <div class="logo">
+          <a href="/" title="my awesome webtitle" style="color: white;">白日</a>
+      </div>
+      <nav class="top-nav">
+          <ul>
+              
+                <li><a href="/" style="color: white;">首页</a></li>
+              
+                <li><a href="/tags.html" style="color: white;">标签</a></li>
+              
+                <li><a href="/timeline.html" style="color: white;">时间线</a></li>
+              
+                <li><a href="/about.html" style="color: white;">关于博主</a></li>
+              
+                <li><a href="/friendLink.html" style="color: white;">友情链接</a></li>
+              
+          </ul>
+      </nav>
+      <div id="top-boot">
+        <a href="javascript:;" id="boot1" style="display:block;" onclick="document.getElementById('boot-area').style.display='block';document.getElementById('boot1').style.display='none';document.getElementById('boot2').style.display='block';"><img src="/assets/boot_white.png" alt=""></a>
+        <a href="javascript:;" id="boot2" style="display: none;" onclick="document.getElementById('boot-area').style.display='none';document.getElementById('boot1').style.display='block';document.getElementById('boot2').style.display='none';"><img src="/assets/boot_white.png" alt=""></a>
+      </div>
+  </div>
+
+</header>
+
+
+<!-- 引入移动下拉选项 -->
+<div id="boot-area">
+    <ul>
+        
+          <a href="/"><li>首页</li></a>
+        
+          <a href="/tags.html"><li>标签</li></a>
+        
+          <a href="/timeline.html"><li>时间线</li></a>
+        
+          <a href="/about.html"><li>关于博主</li></a>
+        
+          <a href="/friendLink.html"><li>友情链接</li></a>
+        
+    </ul>
+</div>
+
+<!-- 引入博文顶部样式 -->
+<!-- 版本一 垃圾 -->
+<!-- <div class="wow fadeIn top" data-wow-duration="3.5s" >
+    <span class="wow fadeInUp" data-wow-delay="0.2s">对于Es6中关于Async、await的理解</span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s"></span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s"></span>
+    <span class="wow fadeInUp" data-wow-delay="0.6s">作者&nbsp;&nbsp;|&nbsp;&nbsp;feiYu</span>
+</div> -->
+
+<!-- 版本二 可切换页面 -->
+
+<div class="post-top" style="background-color:rgb(255,210,32);">
+  <!-- 页面宽度大于800px -->
+  <div class="left-area">
+    
+      <a href="/2020/12/01/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96-%E9%87%8D%E7%BB%98%E9%87%8D%E6%8E%92.html" class="btn bounceInLeft animated" onmouseover="showLeft();this.style.color='rgb(255,210,32)';" onmouseout="goneLeft();this.style.color='rgba(0,0,0,.2)';"><</a>
+      <div id="left-tab" style="display:none;"><span class="left-san"></span><span class="left-main" style="color:rgb(255,210,32);"><sapn class="main">前端性能优化之重绘重排</sapn></span></div>
+    
+  </div>
+  <div class="post-titlearea">
+    <span class="wow fadeInUp" data-wow-delay="0.2s">对于Es6中关于Async、await的理解</span>
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.4s"></span> -->
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.4s"></span> -->
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.6s">作者&nbsp;&nbsp;|&nbsp;&nbsp;feiYu</span> -->
+  </div>
+  <div class="right-area">
+    
+      <a href="/2020/11/24/DIff%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0.html" class="btn bounceInRight self-animated" onmouseover="showRight();this.style.color='rgb(255,210,32)';" onmouseout="goneRight();this.style.color='rgba(0,0,0,.2)';">></a>
+      <div id="right-tab" style="display:none;"><span class="right-san"></span><span class="right-main" style="color:rgb(255,210,32);"><sapn class="main">对于Vue中的diff算法的学习</sapn></span></div>
+    
+  </div>
+
+  <!-- 页面宽度小于800px -->
+  <div class="post-changearea">
+    
+      <a href="/2020/12/01/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96-%E9%87%8D%E7%BB%98%E9%87%8D%E6%8E%92.html" class="leftchange" style="border-right: 1px solid rgb(255,210,32);border-bottom: 2px solid rgb(255,210,32);"><span>上一篇<br><br>前端性能优化之重绘重排</span></a>
+    
+    
+      <a href="/2020/11/24/DIff%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0.html" class="rightchange" style="border-left: 1px solid rgb(255,210,32);border-bottom: 2px solid rgb(255,210,32);"><span>下一篇<br><br>对于Vue中的diff算法的学习</span></a>
+    
+  </div>
+</div>
+
+
+<div class="markdown-body fadeInUp animated">
+
+  
+    
+      <div class="postpage-subtitle" style="border-left: 8px solid rgb(255,210,32); border-right: 8px solid rgb(255,210,32)">
+        
+      </div>
+    
+  
+
+  <!-- 文章内容 -->
+  <h3 id="对于asyncawait的理解">对于Async/await的理解</h3>
+
+<p>async输出的是一个Promise对象，如果在async中return一个直接量，async会把这个直接量通过Promise.resolve封装成Promise对象。</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">async</span> <span class="kd">function</span> <span class="nx">testAsync</span><span class="p">(){</span>
+	<span class="k">return</span> <span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">testAsync</span><span class="p">());</span> <span class="c1">//=&gt;Promise{'hello'}</span>
+</code></pre></div></div>
+
+<h4 id="await">await</h4>
+
+<p>await的作用是等待一个async函数的完成。用于等待async函数的返回值。</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">async</span> <span class="kd">function</span> <span class="nx">test</span><span class="p">(){</span>
+	<span class="kd">const</span> <span class="nx">v</span> <span class="o">=</span> <span class="k">await</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello</span><span class="dl">"</span><span class="p">);</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">v</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h5 id="为什么要用async">为什么要用async？</h5>
+
+<p>来看一个比较典型的情况</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">async</span> <span class="kd">function</span> <span class="k">do</span><span class="p">(){</span>
+	<span class="kd">const</span> <span class="nx">num1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+	<span class="kd">const</span> <span class="nx">num2</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">step1</span><span class="p">(</span><span class="nx">num1</span><span class="p">);</span>
+	<span class="kd">const</span> <span class="nx">num3</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">step2</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span> <span class="nx">num2</span><span class="p">);</span>
+	<span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">step3</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span> <span class="nx">num2</span><span class="p">,</span> <span class="nx">num3</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>可以看出step函数每一步的执行都依赖上一个函数的结果。async在处理这种情况时比写Promise代码看起来简洁多了。</p>
+
+<p>来看看用Promise如何写</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="k">do</span><span class="p">(){</span>
+	<span class="kd">const</span> <span class="nx">num1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+	<span class="nx">step1</span><span class="p">(</span><span class="nx">num1</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">num2</span><span class="o">=&gt;</span><span class="p">{</span>
+		<span class="k">return</span> <span class="nx">step2</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span> <span class="nx">num2</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">num3</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="nx">num1</span><span class="p">,</span> <span class="nx">num2</span><span class="p">,</span> <span class="nx">num3</span><span class="p">]);</span>
+	<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">num3</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="p">[</span><span class="nx">num1</span><span class="p">,</span> <span class="nx">num2</span><span class="p">,</span> <span class="nx">num3</span><span class="p">]</span> <span class="o">=</span> <span class="nx">num3</span><span class="p">;</span>
+		<span class="k">return</span> <span class="nx">step3</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span> <span class="nx">num2</span><span class="p">,</span> <span class="nx">num3</span><span class="p">);</span>
+	<span class="p">})</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+
+  <!-- 引入share模块 -->
+  
+  <div class="social-share-wrapper">
+    <div class="social-share"></div>
+  </div>
+
+
+<!-- share.js -->
+<script src="/assets/js/social-share.min.js"></script>
+<script>
+  socialShare('.social-share', {
+    sites: [
+      
+        'qq'
+        ,
+        
+      
+        'wechat'
+        ,
+        
+      
+        'weibo'
+        ,
+        
+      
+        'twitter'
+        ,
+        
+      
+        'facebook'
+        
+      
+    ],
+    wechatQrcodeTitle: "分享到微信朋友圈",
+    wechatQrcodeHelper: '期待在朋友圈见到这篇文章'
+  });
+</script>
+
+</div>
+
+<!-- 底部锚点 -->
+<a id="htmldown" name="htmldown"></a>
+<!-- 引入评论模块 -->
+
+
+
+    <section class="post-footer-item comment">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDI2OS8xMDgwNg=="></div>
+    </section>
+
+    <!-- 来必力City版安装代码 -->
+    <script type="text/javascript">
+       (function(d, s) {
+           var j, e = d.getElementsByTagName(s)[0];
+
+           if (typeof LivereTower === 'function') { return; }
+
+           j = d.createElement(s);
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           e.parentNode.insertBefore(j, e);
+       })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    <!-- City版安装代码已完成 -->
+
+
+
+
+
+<!-- 引入goto模块 -->
+<div class="bounceInRight animated go">
+  <a title="顶部切换页面" class="gototop" href="#htmlup" target="_self">
+    <div class="box" style="font-family:'ffad_matroregular';">
+        Top
+    </div>
+  </a>
+  <a title="底部有livere评论哦" class="gotobottom" href="#htmldown" target="_self">
+    <div class="box" style="font-family:'ffad_matroregular';">
+        Foot
+    </div>
+  </a>
+</div>
+
+<!-- 引入页面底部模块 -->
+<footer id="bottom">
+  <br>
+  <span>绯羽的博客 ©
+  
+  
+    2018
+    -
+  
+  2020
+  <br>
+  Powered by <a href="https://www.jekyll.com.cn/">Jekyll</a> | <a href="https://github.com/xukimseven/HardCandy-Jekyll">HardCandy-Jekyll</a></span>
+</footer>
+
+
+<!-- 引用wow.js的动画效果 -->
+<script src="/assets/js/wow.js"></script>
+<script>
+    var wow = new WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        // offset: 600,
+        mobile: true,
+        live: true
+    });
+    wow.init();
+</script>
+<!-- 页面刷新回到顶部 -->
+<script>
+    window.onbeforeunload = function(){
+        //刷新后页面自动回到顶部
+        document.documentElement.scrollTop = 0;  //ie下
+        document.body.scrollTop = 0;  //非ie
+    }
+</script>
+<script src="/assets/js/main.js"></script>
+</body>
+</html>

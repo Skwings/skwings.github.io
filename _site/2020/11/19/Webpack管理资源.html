@@ -1,0 +1,414 @@
+<!-- 博文的布局-Layout -->
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 引入head标签 -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-sclable=0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="description" content="白日梦想家" />
+<meta name="keywords" content="skiwngs, feiyu, webDeveloper, blog, Blog" />
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/media.css">
+<link rel="stylesheet" href="/assets/css/animate.min.css">
+<link rel="stylesheet" href="/assets/css/pygments/pygments_default.css">
+<link rel="stylesheet" href="/assets/css/github-markdown.css">
+<!-- SNS-icon -->
+<script src="//at.alicdn.com/t/font_856428_y9z6nq7zf5.js"></script>
+<!-- share.css -->
+<link rel="stylesheet" href="/assets/css/share.min.css">
+<!-- font -->
+<link rel="stylesheet" href="/assets/css/font.css">
+<!-- <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Pacifico|Ubuntu|Roboto+Mono|Source+Sans+Pro" rel="stylesheet"> -->
+
+<!-- Favicon -->
+<link href="/assets/profile.jpeg" rel="shortcut icon" />
+<link href="/assets/profile.jpeg" rel="apple-touch-icon-precomposed" />
+<!-- Android Lolipop Theme Color -->
+<!-- <meta name="theme-color" content="#1464FB"> -->
+<title>Webpack管理资源</title>
+<!-- 百度统计 -->
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!-- 谷歌分析 -->
+
+
+<!-- Android Lolipop Theme Color -->
+<meta name="theme-color" content=" rgb(255,210,32) ">
+</head>
+<body>
+
+<!-- 顶部锚点 -->
+<a id="htmlup" name="htmlup"></a>
+<!-- 引入博文顶部选项 -->
+
+<header id="post-header" style="background-color:rgb(255,210,32);">
+  <div class="top-center">
+      <div class="logo">
+          <a href="/" title="my awesome webtitle" style="color: white;">白日</a>
+      </div>
+      <nav class="top-nav">
+          <ul>
+              
+                <li><a href="/" style="color: white;">首页</a></li>
+              
+                <li><a href="/tags.html" style="color: white;">标签</a></li>
+              
+                <li><a href="/timeline.html" style="color: white;">时间线</a></li>
+              
+                <li><a href="/about.html" style="color: white;">关于博主</a></li>
+              
+                <li><a href="/friendLink.html" style="color: white;">友情链接</a></li>
+              
+          </ul>
+      </nav>
+      <div id="top-boot">
+        <a href="javascript:;" id="boot1" style="display:block;" onclick="document.getElementById('boot-area').style.display='block';document.getElementById('boot1').style.display='none';document.getElementById('boot2').style.display='block';"><img src="/assets/boot_white.png" alt=""></a>
+        <a href="javascript:;" id="boot2" style="display: none;" onclick="document.getElementById('boot-area').style.display='none';document.getElementById('boot1').style.display='block';document.getElementById('boot2').style.display='none';"><img src="/assets/boot_white.png" alt=""></a>
+      </div>
+  </div>
+
+</header>
+
+
+<!-- 引入移动下拉选项 -->
+<div id="boot-area">
+    <ul>
+        
+          <a href="/"><li>首页</li></a>
+        
+          <a href="/tags.html"><li>标签</li></a>
+        
+          <a href="/timeline.html"><li>时间线</li></a>
+        
+          <a href="/about.html"><li>关于博主</li></a>
+        
+          <a href="/friendLink.html"><li>友情链接</li></a>
+        
+    </ul>
+</div>
+
+<!-- 引入博文顶部样式 -->
+<!-- 版本一 垃圾 -->
+<!-- <div class="wow fadeIn top" data-wow-duration="3.5s" >
+    <span class="wow fadeInUp" data-wow-delay="0.2s">Webpack管理资源</span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s"></span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s"></span>
+    <span class="wow fadeInUp" data-wow-delay="0.6s">作者&nbsp;&nbsp;|&nbsp;&nbsp;feiYu</span>
+</div> -->
+
+<!-- 版本二 可切换页面 -->
+
+<div class="post-top" style="background-color:rgb(255,210,32);">
+  <!-- 页面宽度大于800px -->
+  <div class="left-area">
+    
+      <a href="/2020/11/20/TypeScript%E5%9F%BA%E7%A1%80-%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%9E%8B.html" class="btn bounceInLeft animated" onmouseover="showLeft();this.style.color='rgb(255,210,32)';" onmouseout="goneLeft();this.style.color='rgba(0,0,0,.2)';"><</a>
+      <div id="left-tab" style="display:none;"><span class="left-san"></span><span class="left-main" style="color:rgb(255,210,32);"><sapn class="main">TypeScript基础（基础类型）</sapn></span></div>
+    
+  </div>
+  <div class="post-titlearea">
+    <span class="wow fadeInUp" data-wow-delay="0.2s">Webpack管理资源</span>
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.4s"></span> -->
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.4s"></span> -->
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.6s">作者&nbsp;&nbsp;|&nbsp;&nbsp;feiYu</span> -->
+  </div>
+  <div class="right-area">
+    
+      <a href="/2020/05/18/%E6%88%91%E4%BB%AC%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E4%BD%BF%E7%94%A8Webpack.html" class="btn bounceInRight self-animated" onmouseover="showRight();this.style.color='rgb(255,210,32)';" onmouseout="goneRight();this.style.color='rgba(0,0,0,.2)';">></a>
+      <div id="right-tab" style="display:none;"><span class="right-san"></span><span class="right-main" style="color:rgb(255,210,32);"><sapn class="main">为什么要用Webpack</sapn></span></div>
+    
+  </div>
+
+  <!-- 页面宽度小于800px -->
+  <div class="post-changearea">
+    
+      <a href="/2020/11/20/TypeScript%E5%9F%BA%E7%A1%80-%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%9E%8B.html" class="leftchange" style="border-right: 1px solid rgb(255,210,32);border-bottom: 2px solid rgb(255,210,32);"><span>上一篇<br><br>TypeScript基础（基础类型）</span></a>
+    
+    
+      <a href="/2020/05/18/%E6%88%91%E4%BB%AC%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E4%BD%BF%E7%94%A8Webpack.html" class="rightchange" style="border-left: 1px solid rgb(255,210,32);border-bottom: 2px solid rgb(255,210,32);"><span>下一篇<br><br>为什么要用Webpack</span></a>
+    
+  </div>
+</div>
+
+
+<div class="markdown-body fadeInUp animated">
+
+  
+    
+      <div class="postpage-subtitle" style="border-left: 8px solid rgb(255,210,32); border-right: 8px solid rgb(255,210,32)">
+        如何利用webpack打包各种各样的文件资源
+      </div>
+    
+  
+
+  <!-- 文章内容 -->
+  <h3 id="webpack管理资源">Webpack管理资源</h3>
+
+<h4 id="webpack如何打包各种不同的文件资源依赖">Webpack如何打包各种不同的文件资源依赖</h4>
+
+<blockquote>
+  <p>打包对应文件前请先安装对应loader</p>
+</blockquote>
+
+<p>项目架构</p>
+
+<div class="language-diff highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  webpack-demo
+  |- package.json
+  |- webpack.config.js
+  |- /dist
+    |- bundle.js
+    |- index.html
+  |- /src
+   	|- data.xml
+    |- my-font.woff
+    |- my-font.woff2
+    |- icon.png
+    |- style.css
+    |- index.js
+  |- /node_modules
+</code></pre></div></div>
+
+<h4 id="最终效果">最终效果</h4>
+
+<p><img src="..\..\..\assets\webpack-demo1.png" alt="" /></p>
+
+<h4 id="packagejson">package.json</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"webpack-demo"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"private"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"test"</span><span class="p">:</span><span class="w"> </span><span class="s2">"echo </span><span class="se">\"</span><span class="s2">Error: no test specified</span><span class="se">\"</span><span class="s2"> &amp;&amp; exit 1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"webpack"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"keywords"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"license"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ISC"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"devDependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"css-loader"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^5.0.1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"csv-loader"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^3.0.3"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"file-loader"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^6.2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"style-loader"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^2.0.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"webpack"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^5.5.1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"webpack-cli"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^4.2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"xml-loader"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^1.2.1"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"lodash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^4.17.20"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div></div>
+
+<h4 id="indexjs">index.js</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">_</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">lodash</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="dl">'</span><span class="s1">./style.css</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">headerImage</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./header2.jpg</span><span class="dl">'</span><span class="p">;</span> <span class="c1">//图片路径将是打包后的最终路径</span>
+<span class="k">import</span> <span class="nx">data1</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./data.csv</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">data2</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./data.xml</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">component</span><span class="p">(){</span>
+    <span class="kd">var</span> <span class="nx">element</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">'</span><span class="s1">div</span><span class="dl">'</span><span class="p">);</span>
+
+    <span class="c1">//lodash, 现在由此脚本导入</span>
+    <span class="nx">element</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">join</span><span class="p">([</span><span class="dl">'</span><span class="s1">Hello</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">webpack</span><span class="dl">'</span><span class="p">],</span> <span class="dl">''</span><span class="p">);</span>
+    <span class="nx">element</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">);</span>
+
+    <span class="c1">//将图像添加到我们现有的div</span>
+    <span class="kd">var</span> <span class="nx">image</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Image</span><span class="p">();</span>
+    <span class="nx">image</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">headerImage</span><span class="p">;</span>
+
+    <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">image</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data1</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data2</span><span class="p">.</span><span class="nx">note</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">element</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">component</span><span class="p">());</span>
+</code></pre></div></div>
+
+<h4 id="webpackconfigjs">webpack.config.js</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">path</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">entry</span><span class="p">:</span> <span class="dl">'</span><span class="s1">./src/index.js</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">output</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">filename</span><span class="p">:</span> <span class="dl">'</span><span class="s1">bundle.js</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">path</span><span class="p">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="dl">'</span><span class="s1">dist</span><span class="dl">'</span><span class="p">)</span>
+    <span class="p">},</span>
+    <span class="na">module</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">rules</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="na">test</span><span class="p">:</span> <span class="sr">/</span><span class="se">\.</span><span class="sr">css$/</span><span class="p">,</span>
+                <span class="na">use</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="dl">'</span><span class="s1">style-loader</span><span class="dl">'</span><span class="p">,</span>
+                    <span class="dl">'</span><span class="s1">css-loader</span><span class="dl">'</span>
+                <span class="p">]</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="na">test</span><span class="p">:</span> <span class="sr">/</span><span class="se">\.(</span><span class="sr">png|svg|jpg|gif</span><span class="se">)</span><span class="sr">$/</span><span class="p">,</span>
+                <span class="na">use</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="dl">'</span><span class="s1">file-loader</span><span class="dl">'</span>
+                <span class="p">]</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="na">test</span><span class="p">:</span> <span class="sr">/</span><span class="se">\.(</span><span class="sr">wolf|eot|ttf|otf</span><span class="se">)</span><span class="sr">$/</span><span class="p">,</span>
+                <span class="na">use</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="dl">'</span><span class="s1">file-loader</span><span class="dl">'</span>
+                <span class="p">]</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="na">test</span><span class="p">:</span> <span class="sr">/</span><span class="se">\.(</span><span class="sr">csv|tsv</span><span class="se">)</span><span class="sr">$/</span><span class="p">,</span>
+                <span class="na">use</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="dl">'</span><span class="s1">csv-loader</span><span class="dl">'</span>
+                <span class="p">]</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="na">test</span><span class="p">:</span> <span class="sr">/</span><span class="se">\.</span><span class="sr">xml$/</span><span class="p">,</span>
+                <span class="na">use</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="dl">'</span><span class="s1">xml-loader</span><span class="dl">'</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+
+  <!-- 引入share模块 -->
+  
+  <div class="social-share-wrapper">
+    <div class="social-share"></div>
+  </div>
+
+
+<!-- share.js -->
+<script src="/assets/js/social-share.min.js"></script>
+<script>
+  socialShare('.social-share', {
+    sites: [
+      
+        'qq'
+        ,
+        
+      
+        'wechat'
+        ,
+        
+      
+        'weibo'
+        ,
+        
+      
+        'twitter'
+        ,
+        
+      
+        'facebook'
+        
+      
+    ],
+    wechatQrcodeTitle: "分享到微信朋友圈",
+    wechatQrcodeHelper: '期待在朋友圈见到这篇文章'
+  });
+</script>
+
+</div>
+
+<!-- 底部锚点 -->
+<a id="htmldown" name="htmldown"></a>
+<!-- 引入评论模块 -->
+
+
+
+    <section class="post-footer-item comment">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDI2OS8xMDgwNg=="></div>
+    </section>
+
+    <!-- 来必力City版安装代码 -->
+    <script type="text/javascript">
+       (function(d, s) {
+           var j, e = d.getElementsByTagName(s)[0];
+
+           if (typeof LivereTower === 'function') { return; }
+
+           j = d.createElement(s);
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           e.parentNode.insertBefore(j, e);
+       })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    <!-- City版安装代码已完成 -->
+
+
+
+
+
+<!-- 引入goto模块 -->
+<div class="bounceInRight animated go">
+  <a title="顶部切换页面" class="gototop" href="#htmlup" target="_self">
+    <div class="box" style="font-family:'ffad_matroregular';">
+        Top
+    </div>
+  </a>
+  <a title="底部有livere评论哦" class="gotobottom" href="#htmldown" target="_self">
+    <div class="box" style="font-family:'ffad_matroregular';">
+        Foot
+    </div>
+  </a>
+</div>
+
+<!-- 引入页面底部模块 -->
+<footer id="bottom">
+  <br>
+  <span>绯羽的博客 ©
+  
+  
+    2018
+    -
+  
+  2020
+  <br>
+  Powered by <a href="https://www.jekyll.com.cn/">Jekyll</a> | <a href="https://github.com/xukimseven/HardCandy-Jekyll">HardCandy-Jekyll</a></span>
+</footer>
+
+
+<!-- 引用wow.js的动画效果 -->
+<script src="/assets/js/wow.js"></script>
+<script>
+    var wow = new WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        // offset: 600,
+        mobile: true,
+        live: true
+    });
+    wow.init();
+</script>
+<!-- 页面刷新回到顶部 -->
+<script>
+    window.onbeforeunload = function(){
+        //刷新后页面自动回到顶部
+        document.documentElement.scrollTop = 0;  //ie下
+        document.body.scrollTop = 0;  //非ie
+    }
+</script>
+<script src="/assets/js/main.js"></script>
+</body>
+</html>

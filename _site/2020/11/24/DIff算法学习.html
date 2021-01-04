@@ -1,0 +1,367 @@
+<!-- 博文的布局-Layout -->
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 引入head标签 -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-sclable=0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="description" content="白日梦想家" />
+<meta name="keywords" content="skiwngs, feiyu, webDeveloper, blog, Blog" />
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/media.css">
+<link rel="stylesheet" href="/assets/css/animate.min.css">
+<link rel="stylesheet" href="/assets/css/pygments/pygments_default.css">
+<link rel="stylesheet" href="/assets/css/github-markdown.css">
+<!-- SNS-icon -->
+<script src="//at.alicdn.com/t/font_856428_y9z6nq7zf5.js"></script>
+<!-- share.css -->
+<link rel="stylesheet" href="/assets/css/share.min.css">
+<!-- font -->
+<link rel="stylesheet" href="/assets/css/font.css">
+<!-- <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Pacifico|Ubuntu|Roboto+Mono|Source+Sans+Pro" rel="stylesheet"> -->
+
+<!-- Favicon -->
+<link href="/assets/profile.jpeg" rel="shortcut icon" />
+<link href="/assets/profile.jpeg" rel="apple-touch-icon-precomposed" />
+<!-- Android Lolipop Theme Color -->
+<!-- <meta name="theme-color" content="#1464FB"> -->
+<title>对于Vue中的diff算法的学习</title>
+<!-- 百度统计 -->
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!-- 谷歌分析 -->
+
+
+<!-- Android Lolipop Theme Color -->
+<meta name="theme-color" content=" rgb(255,210,32) ">
+</head>
+<body>
+
+<!-- 顶部锚点 -->
+<a id="htmlup" name="htmlup"></a>
+<!-- 引入博文顶部选项 -->
+
+<header id="post-header" style="background-color:rgb(255,210,32);">
+  <div class="top-center">
+      <div class="logo">
+          <a href="/" title="my awesome webtitle" style="color: white;">白日</a>
+      </div>
+      <nav class="top-nav">
+          <ul>
+              
+                <li><a href="/" style="color: white;">首页</a></li>
+              
+                <li><a href="/tags.html" style="color: white;">标签</a></li>
+              
+                <li><a href="/timeline.html" style="color: white;">时间线</a></li>
+              
+                <li><a href="/about.html" style="color: white;">关于博主</a></li>
+              
+                <li><a href="/friendLink.html" style="color: white;">友情链接</a></li>
+              
+          </ul>
+      </nav>
+      <div id="top-boot">
+        <a href="javascript:;" id="boot1" style="display:block;" onclick="document.getElementById('boot-area').style.display='block';document.getElementById('boot1').style.display='none';document.getElementById('boot2').style.display='block';"><img src="/assets/boot_white.png" alt=""></a>
+        <a href="javascript:;" id="boot2" style="display: none;" onclick="document.getElementById('boot-area').style.display='none';document.getElementById('boot1').style.display='block';document.getElementById('boot2').style.display='none';"><img src="/assets/boot_white.png" alt=""></a>
+      </div>
+  </div>
+
+</header>
+
+
+<!-- 引入移动下拉选项 -->
+<div id="boot-area">
+    <ul>
+        
+          <a href="/"><li>首页</li></a>
+        
+          <a href="/tags.html"><li>标签</li></a>
+        
+          <a href="/timeline.html"><li>时间线</li></a>
+        
+          <a href="/about.html"><li>关于博主</li></a>
+        
+          <a href="/friendLink.html"><li>友情链接</li></a>
+        
+    </ul>
+</div>
+
+<!-- 引入博文顶部样式 -->
+<!-- 版本一 垃圾 -->
+<!-- <div class="wow fadeIn top" data-wow-duration="3.5s" >
+    <span class="wow fadeInUp" data-wow-delay="0.2s">对于Vue中的diff算法的学习</span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s"></span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s"></span>
+    <span class="wow fadeInUp" data-wow-delay="0.6s">作者&nbsp;&nbsp;|&nbsp;&nbsp;feiYu</span>
+</div> -->
+
+<!-- 版本二 可切换页面 -->
+
+<div class="post-top" style="background-color:rgb(255,210,32);">
+  <!-- 页面宽度大于800px -->
+  <div class="left-area">
+    
+      <a href="/2020/11/24/%E7%90%86%E8%A7%A3async-await.html" class="btn bounceInLeft animated" onmouseover="showLeft();this.style.color='rgb(255,210,32)';" onmouseout="goneLeft();this.style.color='rgba(0,0,0,.2)';"><</a>
+      <div id="left-tab" style="display:none;"><span class="left-san"></span><span class="left-main" style="color:rgb(255,210,32);"><sapn class="main">对于Es6中关于Async、await的理解</sapn></span></div>
+    
+  </div>
+  <div class="post-titlearea">
+    <span class="wow fadeInUp" data-wow-delay="0.2s">对于Vue中的diff算法的学习</span>
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.4s"></span> -->
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.4s"></span> -->
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.6s">作者&nbsp;&nbsp;|&nbsp;&nbsp;feiYu</span> -->
+  </div>
+  <div class="right-area">
+    
+      <a href="/2020/11/23/TypeScript%E5%9F%BA%E7%A1%80-%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E.html" class="btn bounceInRight self-animated" onmouseover="showRight();this.style.color='rgb(255,210,32)';" onmouseout="goneRight();this.style.color='rgba(0,0,0,.2)';">></a>
+      <div id="right-tab" style="display:none;"><span class="right-san"></span><span class="right-main" style="color:rgb(255,210,32);"><sapn class="main">TypeScript基础(变量声明)</sapn></span></div>
+    
+  </div>
+
+  <!-- 页面宽度小于800px -->
+  <div class="post-changearea">
+    
+      <a href="/2020/11/24/%E7%90%86%E8%A7%A3async-await.html" class="leftchange" style="border-right: 1px solid rgb(255,210,32);border-bottom: 2px solid rgb(255,210,32);"><span>上一篇<br><br>对于Es6中关于Async、await的理解</span></a>
+    
+    
+      <a href="/2020/11/23/TypeScript%E5%9F%BA%E7%A1%80-%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E.html" class="rightchange" style="border-left: 1px solid rgb(255,210,32);border-bottom: 2px solid rgb(255,210,32);"><span>下一篇<br><br>TypeScript基础(变量声明)</span></a>
+    
+  </div>
+</div>
+
+
+<div class="markdown-body fadeInUp animated">
+
+  
+    
+      <div class="postpage-subtitle" style="border-left: 8px solid rgb(255,210,32); border-right: 8px solid rgb(255,210,32)">
+        
+      </div>
+    
+  
+
+  <!-- 文章内容 -->
+  <h3 id="diff算法学习">DIff算法学习</h3>
+
+<p><a href="https://www.cnblogs.com/wind-lanyan/p/9061684.html">原文链接</a></p>
+
+<p>本文是在原文上自己总结的内容。</p>
+
+<h4 id="vue是如何更新节点的">Vue是如何更新节点的？</h4>
+
+<p>普通的渲染真实Dom的开销是非常大的，直接渲染到真实dom上会导致整个dom树的重绘。</p>
+
+<p>根据真实dom生成一颗VirtualDom，当虚拟Dom某个节点的数据改变后会生成一个新的Vnode，然后将vNode将oldVnode作对比，发现有不一样的地方就直接修改在真实Dom上，将oldVnode的值修改为vNode。</p>
+
+<p>diff的过程就是调用名为patch的函数，比较新旧节点，一边比较一边给真实dom打补丁。</p>
+
+<h4 id="什么是virtualdom">什么是VirtualDom？</h4>
+
+<p>virtualDom是将真实的Dom的数据提取出来，以对象的形式模拟树形结构。</p>
+
+<p>真实Dom</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div&gt;</span>
+	<span class="nt">&lt;p&gt;</span>233<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>对应的virtualDom</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">Vnode</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="na">tag</span><span class="p">:</span> <span class="dl">'</span><span class="s1">div</span><span class="dl">'</span><span class="err">，</span>
+	<span class="na">children</span><span class="p">:</span> <span class="p">[</span>
+		<span class="p">{</span><span class="na">tag</span><span class="p">:</span> <span class="dl">'</span><span class="s1">p</span><span class="dl">'</span><span class="p">,</span> <span class="na">text</span><span class="p">:</span> <span class="dl">'</span><span class="s1">123</span><span class="dl">'</span><span class="p">}</span>
+	<span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="diff的比较方式">diff的比较方式？</h4>
+
+<p>在采取diff算法比较新旧节点的时候，比较只在同层级进行，不会<strong>跨层级</strong>比较。</p>
+
+<p><img src="https://images2018.cnblogs.com/blog/998023/201805/998023-20180519212338609-1617459354.png" alt="" /></p>
+
+<h4 id="diff流程图">diff流程图</h4>
+
+<p>当数据发生改变时，被订阅者setter会调用Dep.notify通知所有订阅者Watcher,订阅者就会调用patch给真实的Dom打补丁，更新相应的视图。</p>
+
+<p>Path核心代码</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">patch</span> <span class="p">(</span><span class="nx">oldVnode</span><span class="p">,</span> <span class="nx">vnode</span><span class="p">){</span>
+    <span class="c1">//如果当前节点需要比较</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">sameVnode</span><span class="p">(</span><span class="nx">oldVnode</span><span class="p">,</span> <span class="nx">vnode</span><span class="p">)){</span> <span class="c1">//节点完全一样</span>
+        <span class="nx">patchVnode</span><span class="p">(</span><span class="nx">oldVnode</span><span class="p">,</span> <span class="nx">vnode</span><span class="p">);</span> <span class="c1">//深入比较</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span> <span class="c1">//不一样则替换当前节点</span>
+        <span class="kd">const</span> <span class="nx">oEl</span> <span class="o">=</span> <span class="nx">oldVnode</span><span class="p">.</span><span class="nx">el</span><span class="p">;</span><span class="c1">//oldVnode对应值</span>
+        <span class="kd">let</span> <span class="nx">parentEle</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">(</span><span class="nx">oEl</span><span class="p">);</span><span class="c1">//父元素</span>
+        <span class="nx">createEle</span><span class="p">(</span><span class="nx">vnode</span><span class="p">);</span> <span class="c1">//根据Vnode生成新元素</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">parentEle</span> <span class="o">!==</span> <span class="kc">null</span><span class="p">){</span>
+            <span class="nx">api</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">parentEle</span><span class="p">,</span> <span class="nx">vnode</span><span class="p">.</span><span class="nx">el</span><span class="p">,</span> <span class="nx">api</span><span class="p">.</span><span class="nx">nextSibling</span><span class="p">(</span><span class="nx">oEl</span><span class="p">));</span><span class="c1">//将新元素添加进父元素</span>
+            <span class="nx">api</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span><span class="nx">parentEle</span><span class="p">,</span> <span class="nx">oldVnode</span><span class="p">.</span><span class="nx">el</span><span class="p">);</span> <span class="c1">//移出以前的旧元素节点</span>
+            <span class="nx">oldVnode</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">vnode</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">sameVnode</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">){</span>
+    <span class="k">return</span> <span class="p">(</span>
+    	<span class="nx">a</span><span class="p">.</span><span class="nx">key</span> <span class="o">===</span> <span class="nx">b</span><span class="p">.</span><span class="nx">key</span> <span class="c1">//key值</span>
+        <span class="o">&amp;&amp;</span> <span class="nx">a</span><span class="p">.</span><span class="nx">tag</span> <span class="o">===</span> <span class="nx">b</span><span class="p">.</span><span class="nx">tag</span> <span class="c1">//标签名</span>
+        <span class="o">&amp;&amp;</span> <span class="nx">a</span><span class="p">.</span><span class="nx">isCommnet</span> <span class="o">===</span> <span class="nx">b</span><span class="p">.</span><span class="nx">isCommnet</span> <span class="c1">//是否为注释节点</span>
+        <span class="p">...</span>
+    <span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>这里，如果两个节点相同，那么继续深入他们的子节点，如果两个节点不同，就代表Vnode完全改变了，就可以直接替换oldVnode。</p>
+
+<h4 id="patchvnode干了什么">patchVnode干了什么</h4>
+
+<ul>
+  <li>找到对应的真实dom</li>
+  <li>判断Vnode和oldVnode是否指向同一个对象，如果是直接返回。</li>
+  <li>如果他们都有文本节点，那么将oldVnode的文本替换成vNode的文本节点。</li>
+  <li>如果oldVnode有子节点，vNode没有子节点，那么删除oldVnode的子节点。</li>
+  <li>如果他们都有文本节点，且不一样，那么将oldVnode的文本节点替换成vNode的文本节点。</li>
+  <li>如果oldVnode的子节点为空，vNode有子节点，那么直接将vNode的子节点添加到dom中。</li>
+  <li>如果两者都有子节点，则执行updateChildren函数比较子节点。</li>
+</ul>
+
+
+  <!-- 引入share模块 -->
+  
+  <div class="social-share-wrapper">
+    <div class="social-share"></div>
+  </div>
+
+
+<!-- share.js -->
+<script src="/assets/js/social-share.min.js"></script>
+<script>
+  socialShare('.social-share', {
+    sites: [
+      
+        'qq'
+        ,
+        
+      
+        'wechat'
+        ,
+        
+      
+        'weibo'
+        ,
+        
+      
+        'twitter'
+        ,
+        
+      
+        'facebook'
+        
+      
+    ],
+    wechatQrcodeTitle: "分享到微信朋友圈",
+    wechatQrcodeHelper: '期待在朋友圈见到这篇文章'
+  });
+</script>
+
+</div>
+
+<!-- 底部锚点 -->
+<a id="htmldown" name="htmldown"></a>
+<!-- 引入评论模块 -->
+
+
+
+    <section class="post-footer-item comment">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDI2OS8xMDgwNg=="></div>
+    </section>
+
+    <!-- 来必力City版安装代码 -->
+    <script type="text/javascript">
+       (function(d, s) {
+           var j, e = d.getElementsByTagName(s)[0];
+
+           if (typeof LivereTower === 'function') { return; }
+
+           j = d.createElement(s);
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           e.parentNode.insertBefore(j, e);
+       })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    <!-- City版安装代码已完成 -->
+
+
+
+
+
+<!-- 引入goto模块 -->
+<div class="bounceInRight animated go">
+  <a title="顶部切换页面" class="gototop" href="#htmlup" target="_self">
+    <div class="box" style="font-family:'ffad_matroregular';">
+        Top
+    </div>
+  </a>
+  <a title="底部有livere评论哦" class="gotobottom" href="#htmldown" target="_self">
+    <div class="box" style="font-family:'ffad_matroregular';">
+        Foot
+    </div>
+  </a>
+</div>
+
+<!-- 引入页面底部模块 -->
+<footer id="bottom">
+  <br>
+  <span>绯羽的博客 ©
+  
+  
+    2018
+    -
+  
+  2020
+  <br>
+  Powered by <a href="https://www.jekyll.com.cn/">Jekyll</a> | <a href="https://github.com/xukimseven/HardCandy-Jekyll">HardCandy-Jekyll</a></span>
+</footer>
+
+
+<!-- 引用wow.js的动画效果 -->
+<script src="/assets/js/wow.js"></script>
+<script>
+    var wow = new WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        // offset: 600,
+        mobile: true,
+        live: true
+    });
+    wow.init();
+</script>
+<!-- 页面刷新回到顶部 -->
+<script>
+    window.onbeforeunload = function(){
+        //刷新后页面自动回到顶部
+        document.documentElement.scrollTop = 0;  //ie下
+        document.body.scrollTop = 0;  //非ie
+    }
+</script>
+<script src="/assets/js/main.js"></script>
+</body>
+</html>

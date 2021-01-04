@@ -1,0 +1,45 @@
+<h3 id="重零开始搭建前后端分离项目vue--node--express">重零开始搭建前后端分离项目（Vue + node + express）</h3>
+
+<p>前端框架 <a href="http://localhost:3000/showMsg">项目地址</a></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>项目框架 Vue
+Css sass
+Js TypeScript
+接口请求 Axios
+</code></pre></div></div>
+
+<p>后台框架 <a href="http://localhost:3000/showMsg">项目地址</a></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>开发语言 Node
+框架 express
+数据库 mongodb
+</code></pre></div></div>
+
+<h4 id="一初始化前台本地项目">一、初始化前台本地项目</h4>
+<p>1、全局安装vue-cli
+<code class="highlighter-rouge">npm install -g @vue/cli</code>
+查看vue-cli版本
+<code class="highlighter-rouge">vue -V</code></p>
+
+<p>初始化项目</p>
+
+<p><code class="highlighter-rouge">vue init webpack my-vue-project</code></p>
+
+<h3 id="二初始化后台项目">二、初始化后台项目</h3>
+
+<p>1、 全局安装express-generator</p>
+
+<p><code class="highlighter-rouge">cnpm install express-generator -g</code></p>
+
+<p>2、初始化项目</p>
+
+<p><code class="highlighter-rouge">express --view=pug express-project</code></p>
+
+<p>3、安装supervisor</p>
+
+<p><code class="highlighter-rouge">cnpm install supervisor -g</code></p>
+
+<p>4、修改配置为 <code class="highlighter-rouge">supervisor ./bin/www</code></p>
+
+<p>执行<code class="highlighter-rouge">supervisor node./bin/www</code></p>
+
