@@ -1,0 +1,47 @@
+<h3 id="js中的callapply和bind">JS中的call(（）、apply（）和bind（）</h3>
+
+<p>再js中，call、apply、bind都是用来改变原函数执行上下文，也就是说，改变函数执行时内部的this指向。</p>
+
+<p>语法：</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">arg1</span><span class="p">,</span> <span class="nx">arg2</span><span class="p">,</span> <span class="nx">arg3</span><span class="p">...)</span>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="p">[</span><span class="nx">arg1</span><span class="p">,</span> <span class="nx">arg2</span><span class="p">,</span> <span class="nx">arg3</span><span class="p">...])</span>
+<span class="c1">//参数为null或者undefined时，则指向全局对象</span>
+</code></pre></div></div>
+
+<h4 id="apply">Apply:</h4>
+
+<p>在调用一个存在的函数时，你可以为其指定一个this对象。this指的是当前调用这个函数的对象。</p>
+
+<p>示例：</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">fruits</span><span class="p">(){}</span>
+
+<span class="nx">fruits</span><span class="p">.</span><span class="nx">pototype</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">color</span><span class="p">:</span> <span class="dl">'</span><span class="s1">red</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">say</span><span class="p">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">我的颜色是</span><span class="dl">'</span><span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">color</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">another</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">color</span><span class="p">:</span> <span class="dl">'</span><span class="s1">yellow</span><span class="dl">'</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">apple</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">fruits</span><span class="p">();</span>
+<span class="nx">apple</span><span class="p">.</span><span class="nx">say</span><span class="p">();</span><span class="c1">// red</span>
+<span class="nx">apple</span><span class="p">.</span><span class="nx">say</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">another</span><span class="p">);</span> <span class="c1">//yellow</span>
+<span class="nx">apple</span><span class="p">.</span><span class="nx">say</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">another</span><span class="p">);</span> <span class="c1">//yellow</span>
+</code></pre></div></div>
+
+<p>用apply将数组各项添加到另一个数组</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">a</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">b</span><span class="dl">'</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">ele</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">];</span>
+<span class="nx">array</span><span class="p">.</span><span class="nx">push</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="nx">ele</span><span class="p">);</span>
+<span class="c1">//如果直接push的话，会将ele整个作为一个元素传递给array</span>
+</code></pre></div></div>
+
+<p>实现继承</p>
