@@ -1,3 +1,14 @@
+---
+layout: post
+title: 'JS中的call(（）、apply（）和bind（）'
+date: 2020-12-15
+author: feiYu
+color: rgb(255,210,32)
+cover: ''
+tags: Js
+subtitle: ''
+---
+
 ### JS中的call(（）、apply（）和bind（）
 
 再js中，call、apply、bind都是用来改变原函数执行上下文，也就是说，改变函数执行时内部的this指向。
