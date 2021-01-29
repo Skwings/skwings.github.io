@@ -1,12 +1,21 @@
 ---
+
 layout: post
+
 title: '关于React中click自执行'
+
 date: 2020-1-2
+
 author: feiYu
+
 color: rgb(255,210,32)
+
 cover: '../assets/react.jpg'
+
 tags: React
-subtitle: ''
+
+subtitle: " "
+
 ---
 
 ### 关于React中click自执行

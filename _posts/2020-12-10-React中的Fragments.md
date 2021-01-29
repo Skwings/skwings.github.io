@@ -1,3 +1,23 @@
+---
+
+layout: post
+
+title: '谈谈浏览器的两种缓存机制'
+
+date: 2020-12-10
+
+author: feiYu
+
+color: rgb(255,210,32)
+
+cover: '../assets/react.jpg'
+
+tags: React
+
+subtitle: " "
+
+---
+
 ### React中的Fragments
 
 Fragments的作用：

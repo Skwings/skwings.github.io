@@ -13,8 +13,8 @@ color: rgb(255,210,32)
 cover: '../assets/test.png'
 
 tags: TypeScript
-
-subtitle: ""
+ 
+subtitle: " "
 
 ---
 

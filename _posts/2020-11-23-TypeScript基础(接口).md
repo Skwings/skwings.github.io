@@ -14,7 +14,7 @@ cover: '../assets/typeScript2.jpg'
 
 tags: TypeScript
 
-subtitle: ""
+subtitle: " "
 
 ---
 

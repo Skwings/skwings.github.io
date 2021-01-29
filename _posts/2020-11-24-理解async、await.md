@@ -14,7 +14,7 @@ cover: '../assets/ECMAScript.jpg'
 
 tags: Es6
 
-subtitle: ""
+subtitle: " "
 
 ---
 

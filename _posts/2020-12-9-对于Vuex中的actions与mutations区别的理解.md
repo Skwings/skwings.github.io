@@ -1,12 +1,21 @@
 ---
+
 layout: post
-title: '对于Vuex中actions与mutations区别的理解'
+
+title: '对于Vuex中的actions与mutations区别的理解'
+
 date: 2020-12-9
+
 author: feiYu
+
 color: rgb(255,210,32)
+
 cover: '../assets/vue.png'
-tags: vue vuex
-subtitle: ''
+
+tags: Vue
+
+subtitle: " "
+
 ---
 
 ### 对于Vuex中的actions与mutations区别的理解
