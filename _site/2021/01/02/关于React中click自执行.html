@@ -1,0 +1,18 @@
+<h3 id="关于react中click自执行">关于React中click自执行</h3>
+
+<p><code class="highlighter-rouge">onClick = {此处为函数引用或匿名函数}</code></p>
+
+<p>所以如果<code class="highlighter-rouge">onclick={this.handle()}</code>这种写法就相当于写了一个自执行函数，会在页面初始化时执行。点击的话也不会触发相应的事件。</p>
+
+<p>解决方案</p>
+
+<p>方法一</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">onClick</span> <span class="o">=</span> <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handle</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>方法二</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">onClick</span> <span class="o">=</span> <span class="p">{()</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handle</span><span class="p">()}}</span>
+</code></pre></div></div>
+

@@ -1,4 +1,58 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-04T14:46:08+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">绯羽的博客</title><subtitle>白日梦想家</subtitle><author><name>true</name></author><entry><title type="html">Js中的call(（）、apply（）和bind（）</title><link href="http://localhost:4000/2020/12/15/JS%E4%B8%AD%E7%9A%84call(-apply-%E5%92%8Cbind.html" rel="alternate" type="text/html" title="Js中的call(（）、apply（）和bind（）" /><published>2020-12-15T00:00:00+08:00</published><updated>2020-12-15T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/15/JS%E4%B8%AD%E7%9A%84call(()%E3%80%81apply()%E5%92%8Cbind()</id><content type="html" xml:base="http://localhost:4000/2020/12/15/JS%E4%B8%AD%E7%9A%84call(-apply-%E5%92%8Cbind.html">&lt;h3 id=&quot;js中的callapply和bind&quot;&gt;JS中的call(（）、apply（）和bind（）&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-26T16:16:01+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">绯羽的博客</title><subtitle>白日梦想家</subtitle><author><name>true</name></author><entry><title type="html">关于react中click自执行</title><link href="http://localhost:4000/2021/01/02/%E5%85%B3%E4%BA%8EReact%E4%B8%ADclick%E8%87%AA%E6%89%A7%E8%A1%8C.html" rel="alternate" type="text/html" title="关于react中click自执行" /><published>2021-01-02T00:00:00+08:00</published><updated>2021-01-02T00:00:00+08:00</updated><id>http://localhost:4000/2021/01/02/%E5%85%B3%E4%BA%8EReact%E4%B8%ADclick%E8%87%AA%E6%89%A7%E8%A1%8C</id><content type="html" xml:base="http://localhost:4000/2021/01/02/%E5%85%B3%E4%BA%8EReact%E4%B8%ADclick%E8%87%AA%E6%89%A7%E8%A1%8C.html">&lt;h3 id=&quot;关于react中click自执行&quot;&gt;关于React中click自执行&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;onClick = {此处为函数引用或匿名函数}&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;所以如果&lt;code class=&quot;highlighter-rouge&quot;&gt;onclick={this.handle()}&lt;/code&gt;这种写法就相当于写了一个自执行函数，会在页面初始化时执行。点击的话也不会触发相应的事件。&lt;/p&gt;
+
+&lt;p&gt;解决方案&lt;/p&gt;
+
+&lt;p&gt;方法一&lt;/p&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;onClick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;handle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;方法二&lt;/p&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;onClick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;handle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()}}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>true</name></author><summary type="html">关于React中click自执行</summary></entry><entry><title type="html">对于开发管理流程的思考</title><link href="http://localhost:4000/2020/12/16/%E5%AF%B9%E4%BA%8E%E5%BC%80%E5%8F%91%E7%AE%A1%E7%90%86%E6%B5%81%E7%A8%8B%E4%B8%8E%E6%8F%90%E5%8D%87%E7%B3%BB%E7%BB%9F%E5%8F%AF%E7%94%A8%E6%80%A7%E7%9A%84%E6%80%9D%E8%80%83.html" rel="alternate" type="text/html" title="对于开发管理流程的思考" /><published>2020-12-16T00:00:00+08:00</published><updated>2020-12-16T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/16/%E5%AF%B9%E4%BA%8E%E5%BC%80%E5%8F%91%E7%AE%A1%E7%90%86%E6%B5%81%E7%A8%8B%E4%B8%8E%E6%8F%90%E5%8D%87%E7%B3%BB%E7%BB%9F%E5%8F%AF%E7%94%A8%E6%80%A7%E7%9A%84%E6%80%9D%E8%80%83</id><content type="html" xml:base="http://localhost:4000/2020/12/16/%E5%AF%B9%E4%BA%8E%E5%BC%80%E5%8F%91%E7%AE%A1%E7%90%86%E6%B5%81%E7%A8%8B%E4%B8%8E%E6%8F%90%E5%8D%87%E7%B3%BB%E7%BB%9F%E5%8F%AF%E7%94%A8%E6%80%A7%E7%9A%84%E6%80%9D%E8%80%83.html">&lt;h3 id=&quot;对于开发管理流程的思考&quot;&gt;对于开发管理流程的思考&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;版本开发：&lt;/strong&gt;
+1、开发人员认真阅读需求文档，检查澄清会议中提出问题需求文档是否已经修改，最新的需求文档是否合理，有没有问题或者疑问，有问题及时提出。
+2、需求文档中高保真psd是否已经提供，没有提供及时提出要求最晚时间点。
+3、开发人员严格按照需求文档，UI高保真效果图设计效果开发，如高保真和效果图不一致者及时提出让修改，如有实现不了功能提前上报问题。
+4、开发过程中一般不能变化需求，如有需求变更，沟通之后让更新需求文档，以最终需求文档为准，如时间紧急，可优先开发，再补需求文档以作记录。
+5、开发人员开发完成必须进行自测，自测通过在转内部测试。
+&lt;strong&gt;开发联调：&lt;/strong&gt;
+开发人员针对涉及外部系统对接功能需求，
+1、要清楚对接哪些系统，具体业务场景和使用流程，怎么对接联调调用。
+2、涉及外部系统联调环境是否具备，测试环境、灰度环境、生产环境以及线路是否一致。
+3、对方具体联调时间计划，测试环境、灰度环境、生产环境联调时间点。
+4、所有对接联沟通等，由开发技术负责人整体负责，如外部系统时间计划与我们不一致，及时上升给版本负责人进行协调。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;测试用例评审&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;从测试环境、灰度环境等测试资源、功能实现原理、影响范围、测试方法、依赖外部系统等多方面进行评审，确保测试场景全覆盖。
+&lt;strong&gt;评审流程：&lt;/strong&gt;&lt;br /&gt;
+1、质量组输出测试用例。
+2、内部测试人员输出测试用例，与质保组测试用例进行整合，提前一天发给开发人员。
+3、测试人员负责收集每个开发人员对测试用例反馈建议。
+4、测试人员与质保组根据开发反馈建议完善测试用例，完善之后组织召开评审。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;上线前的风险评估&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;1、对于线下经过与方案、开发，测试、版本负责人沟通确定，无风险项的版本，不用组织会议再进行评审，微信群里通知说明
+2、对于有风险项，需要组织会议进行评估，重点从功能影响范围、依赖外部系统、测试、灰度环境测试情况评估风险项的影响范围和版本回退方案。
+评审流程：
+      \1. 风险点反馈和评估&lt;br /&gt;
+      \2. 灰度环境或者测试环境测试结果
+      \3. 版本回退方案
+      \4. 测试模块简要（让大家把关是否有少测试的模块部分）&lt;/p&gt;
+
+&lt;h3 id=&quot;提升系统可用性&quot;&gt;提升系统可用性&lt;/h3&gt;
+
+&lt;p&gt;异地容灾，当IT系统只在一处部署时，当突发停电或自然灾害等情况时，也难以保障正常提供服务。在A地点部署主用系统，同时在B地点对关键应用及数据进行异地灾备。当主用系统不可以用时，启用备用系统，以增强系统的可用性。&lt;/p&gt;
+
+&lt;p&gt;应用服务方面，系统中有多个应用程序向外提供服务，这些应用程序需同时部署于多台服务器，当某一个服务节点出现问题时，其他的节点仍能保持服务不中断，形成冗余备份。当服务器断电重启时，应用程序（服务组件）应具备自动启动的能力，保障系统的高可用。&lt;/p&gt;</content><author><name>feiYu</name></author><category term="开发管理" /><summary type="html">对于开发管理流程的思考</summary></entry><entry><title type="html">JS中的call(（）、apply（）和bind（）</title><link href="http://localhost:4000/2020/12/15/JS%E4%B8%AD%E7%9A%84call(-apply-%E5%92%8Cbind.html" rel="alternate" type="text/html" title="JS中的call(（）、apply（）和bind（）" /><published>2020-12-15T00:00:00+08:00</published><updated>2020-12-15T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/15/JS%E4%B8%AD%E7%9A%84call(()%E3%80%81apply()%E5%92%8Cbind()</id><content type="html" xml:base="http://localhost:4000/2020/12/15/JS%E4%B8%AD%E7%9A%84call(-apply-%E5%92%8Cbind.html">&lt;h3 id=&quot;js中的callapply和bind&quot;&gt;JS中的call(（）、apply（）和bind（）&lt;/h3&gt;
 
 &lt;p&gt;再js中，call、apply、bind都是用来改变原函数执行上下文，也就是说，改变函数执行时内部的this指向。&lt;/p&gt;
 
@@ -44,7 +98,26 @@
 &lt;span class=&quot;c1&quot;&gt;//如果直接push的话，会将ele整个作为一个元素传递给array&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;实现继承&lt;/p&gt;</content><author><name>true</name></author><summary type="html">JS中的call(（）、apply（）和bind（）</summary></entry><entry><title type="html">谈谈浏览器的两种缓存机制</title><link href="http://localhost:4000/2020/12/14/%E8%B0%88%E8%B0%88%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6.html" rel="alternate" type="text/html" title="谈谈浏览器的两种缓存机制" /><published>2020-12-14T00:00:00+08:00</published><updated>2020-12-14T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/14/%E8%B0%88%E8%B0%88%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6</id><content type="html" xml:base="http://localhost:4000/2020/12/14/%E8%B0%88%E8%B0%88%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6.html">&lt;h3 id=&quot;谈谈浏览器的两种缓存机制&quot;&gt;谈谈浏览器的两种缓存机制&lt;/h3&gt;</content><author><name>true</name></author><summary type="html">谈谈浏览器的两种缓存机制</summary></entry><entry><title type="html">对于vuex状态管理的理解</title><link href="http://localhost:4000/2020/12/09/%E5%AF%B9Vuex%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E7%9A%84%E7%90%86%E8%A7%A3.html" rel="alternate" type="text/html" title="对于vuex状态管理的理解" /><published>2020-12-09T00:00:00+08:00</published><updated>2020-12-09T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/09/%E5%AF%B9Vuex%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E7%9A%84%E7%90%86%E8%A7%A3</id><content type="html" xml:base="http://localhost:4000/2020/12/09/%E5%AF%B9Vuex%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E7%9A%84%E7%90%86%E8%A7%A3.html">&lt;h3 id=&quot;对vuex状态管理的理解&quot;&gt;对Vuex状态管理的理解&lt;/h3&gt;
+&lt;p&gt;实现继承&lt;/p&gt;</content><author><name>feiYu</name></author><category term="Js" /><summary type="html">JS中的call(（）、apply（）和bind（）</summary></entry><entry><title type="html">谈谈浏览器的两种缓存机制</title><link href="http://localhost:4000/2020/12/14/%E8%B0%88%E8%B0%88%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6.html" rel="alternate" type="text/html" title="谈谈浏览器的两种缓存机制" /><published>2020-12-14T00:00:00+08:00</published><updated>2020-12-14T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/14/%E8%B0%88%E8%B0%88%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6</id><content type="html" xml:base="http://localhost:4000/2020/12/14/%E8%B0%88%E8%B0%88%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6.html">&lt;h3 id=&quot;谈谈浏览器的两种缓存机制&quot;&gt;谈谈浏览器的两种缓存机制&lt;/h3&gt;</content><author><name>feiYu</name></author><category term="浏览器" /><summary type="html">谈谈浏览器的两种缓存机制</summary></entry><entry><title type="html">对于Vuex中actions与mutations区别的理解</title><link href="http://localhost:4000/2020/12/09/%E5%AF%B9%E4%BA%8EVuex%E4%B8%AD%E7%9A%84actions%E4%B8%8Emutations%E5%8C%BA%E5%88%AB%E7%9A%84%E7%90%86%E8%A7%A3.html" rel="alternate" type="text/html" title="对于Vuex中actions与mutations区别的理解" /><published>2020-12-09T00:00:00+08:00</published><updated>2020-12-09T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/09/%E5%AF%B9%E4%BA%8EVuex%E4%B8%AD%E7%9A%84actions%E4%B8%8Emutations%E5%8C%BA%E5%88%AB%E7%9A%84%E7%90%86%E8%A7%A3</id><content type="html" xml:base="http://localhost:4000/2020/12/09/%E5%AF%B9%E4%BA%8EVuex%E4%B8%AD%E7%9A%84actions%E4%B8%8Emutations%E5%8C%BA%E5%88%AB%E7%9A%84%E7%90%86%E8%A7%A3.html">&lt;h3 id=&quot;对于vuex中的actions与mutations区别的理解&quot;&gt;对于Vuex中的actions与mutations区别的理解&lt;/h3&gt;
+
+&lt;p&gt;actions与mutations同样可以实现异步操作，为什么异步操作要用actions而不是mutations呢？&lt;/p&gt;
+
+&lt;p&gt;官方文档中的说明&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;现在想象，我们正在 debug 一个 app 并且观察 devtool 中的 mutation 日志。每一条 mutation 被记录，devtools 都需要捕捉到前一状态和后一状态的快照。然而，在上面的例子中 mutation 中的异步函数中的回调让这不可能完成：因为当 mutation 触发的时候，回调函数还没有被调用，devtools 不知道什么时候回调函数实际上被调用——实质上任何在回调函数中进行的状态的改变都是不可追踪的。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;实际上在mutation中执行异步操作，并不适合devtools进行调试，追踪状态的变更。&lt;/p&gt;
+
+&lt;p&gt;改变state唯一的方法是提交mutation，所在在action中需要commit触发mutation进行状态更改。&lt;/p&gt;
+
+&lt;h4 id=&quot;所以&quot;&gt;所以&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Mutation中写的是同步函数，actions中写的需要是异步函数，这是一种约定，为了更好的追踪vuex的状态变更，我们都需要按照这种原则进行开发。&lt;/li&gt;
+  &lt;li&gt;更改state的唯一方法是提交mutation，action中需要通过commit触发mutation。&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>feiYu</name></author><category term="vue" /><category term="vuex" /><summary type="html">对于Vuex中的actions与mutations区别的理解</summary></entry><entry><title type="html">对于vuex状态管理的理解</title><link href="http://localhost:4000/2020/12/09/%E5%AF%B9Vuex%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E7%9A%84%E7%90%86%E8%A7%A3.html" rel="alternate" type="text/html" title="对于vuex状态管理的理解" /><published>2020-12-09T00:00:00+08:00</published><updated>2020-12-09T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/09/%E5%AF%B9Vuex%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E7%9A%84%E7%90%86%E8%A7%A3</id><content type="html" xml:base="http://localhost:4000/2020/12/09/%E5%AF%B9Vuex%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E7%9A%84%E7%90%86%E8%A7%A3.html">&lt;h3 id=&quot;对vuex状态管理的理解&quot;&gt;对Vuex状态管理的理解&lt;/h3&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;vue官方文档对于Vuex的定义：是一种状态管理模式，采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态已一种可预测的方式发生变化。&lt;/p&gt;
@@ -81,26 +154,7 @@
 
 &lt;p&gt;通过 &lt;code class=&quot;highlighter-rouge&quot;&gt;定义与隔离&lt;/code&gt; 状态管理中的各种概念并通过强制规则维持视图与状态间的独立性。&lt;/p&gt;
 
-&lt;p&gt;以上就是vuex的基本概念&lt;/p&gt;</content><author><name>feiYu</name></author><category term="vue" /><category term="vuex" /><summary type="html">对Vuex状态管理的理解</summary></entry><entry><title type="html">对于Vuex中actions与mutations区别的理解</title><link href="http://localhost:4000/2020/12/09/%E5%AF%B9%E4%BA%8EVuex%E4%B8%AD%E7%9A%84actions%E4%B8%8Emutations%E5%8C%BA%E5%88%AB%E7%9A%84%E7%90%86%E8%A7%A3.html" rel="alternate" type="text/html" title="对于Vuex中actions与mutations区别的理解" /><published>2020-12-09T00:00:00+08:00</published><updated>2020-12-09T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/09/%E5%AF%B9%E4%BA%8EVuex%E4%B8%AD%E7%9A%84actions%E4%B8%8Emutations%E5%8C%BA%E5%88%AB%E7%9A%84%E7%90%86%E8%A7%A3</id><content type="html" xml:base="http://localhost:4000/2020/12/09/%E5%AF%B9%E4%BA%8EVuex%E4%B8%AD%E7%9A%84actions%E4%B8%8Emutations%E5%8C%BA%E5%88%AB%E7%9A%84%E7%90%86%E8%A7%A3.html">&lt;h3 id=&quot;对于vuex中的actions与mutations区别的理解&quot;&gt;对于Vuex中的actions与mutations区别的理解&lt;/h3&gt;
-
-&lt;p&gt;actions与mutations同样可以实现异步操作，为什么异步操作要用actions而不是mutations呢？&lt;/p&gt;
-
-&lt;p&gt;官方文档中的说明&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;现在想象，我们正在 debug 一个 app 并且观察 devtool 中的 mutation 日志。每一条 mutation 被记录，devtools 都需要捕捉到前一状态和后一状态的快照。然而，在上面的例子中 mutation 中的异步函数中的回调让这不可能完成：因为当 mutation 触发的时候，回调函数还没有被调用，devtools 不知道什么时候回调函数实际上被调用——实质上任何在回调函数中进行的状态的改变都是不可追踪的。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;实际上在mutation中执行异步操作，并不适合devtools进行调试，追踪状态的变更。&lt;/p&gt;
-
-&lt;p&gt;改变state唯一的方法是提交mutation，所在在action中需要commit触发mutation进行状态更改。&lt;/p&gt;
-
-&lt;h4 id=&quot;所以&quot;&gt;所以&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Mutation中写的是同步函数，actions中写的需要是异步函数，这是一种约定，为了更好的追踪vuex的状态变更，我们都需要按照这种原则进行开发。&lt;/li&gt;
-  &lt;li&gt;更改state的唯一方法是提交mutation，action中需要通过commit触发mutation。&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>feiYu</name></author><category term="vue" /><category term="vuex" /><summary type="html">对于Vuex中的actions与mutations区别的理解</summary></entry><entry><title type="html">重零开始搭建自己的vue项目</title><link href="http://localhost:4000/2020/12/02/%E9%87%8D%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84VUE%E9%A1%B9%E7%9B%AE.html" rel="alternate" type="text/html" title="重零开始搭建自己的vue项目" /><published>2020-12-02T00:00:00+08:00</published><updated>2020-12-02T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/02/%E9%87%8D%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84VUE%E9%A1%B9%E7%9B%AE</id><content type="html" xml:base="http://localhost:4000/2020/12/02/%E9%87%8D%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84VUE%E9%A1%B9%E7%9B%AE.html">&lt;h3 id=&quot;重零开始搭建前后端分离项目vue--node--express&quot;&gt;重零开始搭建前后端分离项目（Vue + node + express）&lt;/h3&gt;
+&lt;p&gt;以上就是vuex的基本概念&lt;/p&gt;</content><author><name>feiYu</name></author><category term="vue" /><category term="vuex" /><summary type="html">对Vuex状态管理的理解</summary></entry><entry><title type="html">重零开始搭建自己的vue项目</title><link href="http://localhost:4000/2020/12/02/%E9%87%8D%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84VUE%E9%A1%B9%E7%9B%AE.html" rel="alternate" type="text/html" title="重零开始搭建自己的vue项目" /><published>2020-12-02T00:00:00+08:00</published><updated>2020-12-02T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/02/%E9%87%8D%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84VUE%E9%A1%B9%E7%9B%AE</id><content type="html" xml:base="http://localhost:4000/2020/12/02/%E9%87%8D%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84VUE%E9%A1%B9%E7%9B%AE.html">&lt;h3 id=&quot;重零开始搭建前后端分离项目vue--node--express&quot;&gt;重零开始搭建前后端分离项目（Vue + node + express）&lt;/h3&gt;
 
 &lt;p&gt;前端框架 &lt;a href=&quot;http://localhost:3000/showMsg&quot;&gt;项目地址&lt;/a&gt;&lt;/p&gt;
 
@@ -192,136 +246,4 @@ Js TypeScript
 
 &lt;p&gt;由于在构建dom树的过程中，Html中含有link标签，浏览器由此预见了需要此资源来渲染页面，所以会在构建dom树时就开始进行对此Css资源的请求，并进行Dom树的构建。&lt;/p&gt;
 
-&lt;p&gt;Css树的构建与Dom树一样，读取文档，再将字节转化成字符，确定token（标签），再将token转化为nodes，通过nodes构建Css树。&lt;/p&gt;</content><author><name>feiYu</name></author><category term="浏览器" /><summary type="html">浏览器渲染页面原理与流程</summary></entry><entry><title type="html">浏览器与服务器之间的交互协议</title><link href="http://localhost:4000/2020/12/01/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E9%97%B4%E7%9A%84%E4%BA%A4%E4%BA%92%E5%8D%8F%E8%AE%AE.html" rel="alternate" type="text/html" title="浏览器与服务器之间的交互协议" /><published>2020-12-01T00:00:00+08:00</published><updated>2020-12-01T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/01/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E9%97%B4%E7%9A%84%E4%BA%A4%E4%BA%92%E5%8D%8F%E8%AE%AE</id><content type="html" xml:base="http://localhost:4000/2020/12/01/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E9%97%B4%E7%9A%84%E4%BA%A4%E4%BA%92%E5%8D%8F%E8%AE%AE.html">&lt;h3 id=&quot;浏览器与服务器之间的交互协议&quot;&gt;浏览器与服务器之间的交互协议&lt;/h3&gt;</content><author><name>true</name></author><summary type="html">浏览器与服务器之间的交互协议</summary></entry><entry><title type="html">对于Es6中关于Async、await的理解</title><link href="http://localhost:4000/2020/11/24/%E7%90%86%E8%A7%A3async-await.html" rel="alternate" type="text/html" title="对于Es6中关于Async、await的理解" /><published>2020-11-24T00:00:00+08:00</published><updated>2020-11-24T00:00:00+08:00</updated><id>http://localhost:4000/2020/11/24/%E7%90%86%E8%A7%A3async%E3%80%81await</id><content type="html" xml:base="http://localhost:4000/2020/11/24/%E7%90%86%E8%A7%A3async-await.html">&lt;h3 id=&quot;对于asyncawait的理解&quot;&gt;对于Async/await的理解&lt;/h3&gt;
-
-&lt;p&gt;async输出的是一个Promise对象，如果在async中return一个直接量，async会把这个直接量通过Promise.resolve封装成Promise对象。&lt;/p&gt;
-
-&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;testAsync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;testAsync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//=&amp;gt;Promise{'hello'}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h4 id=&quot;await&quot;&gt;await&lt;/h4&gt;
-
-&lt;p&gt;await的作用是等待一个async函数的完成。用于等待async函数的返回值。&lt;/p&gt;
-
-&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-	&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;v&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Hello&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-	&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h5 id=&quot;为什么要用async&quot;&gt;为什么要用async？&lt;/h5&gt;
-
-&lt;p&gt;来看一个比较典型的情况&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-	&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;num1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;num2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;step1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-	&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;num3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;step2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;num2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-	&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;step3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;num2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;num3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;可以看出step函数每一步的执行都依赖上一个函数的结果。async在处理这种情况时比写Promise代码看起来简洁多了。&lt;/p&gt;
-
-&lt;p&gt;来看看用Promise如何写&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-	&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;num1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;nx&quot;&gt;step1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;step2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;num2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;num2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;num3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;num2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;num3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;num3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;step3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;num2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;num3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>feiYu</name></author><category term="Es6" /><summary type="html">对于Async/await的理解</summary></entry><entry><title type="html">对于Vue中的diff算法的学习</title><link href="http://localhost:4000/2020/11/24/DIff%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0.html" rel="alternate" type="text/html" title="对于Vue中的diff算法的学习" /><published>2020-11-24T00:00:00+08:00</published><updated>2020-11-24T00:00:00+08:00</updated><id>http://localhost:4000/2020/11/24/DIff%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0</id><content type="html" xml:base="http://localhost:4000/2020/11/24/DIff%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0.html">&lt;h3 id=&quot;diff算法学习&quot;&gt;DIff算法学习&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/wind-lanyan/p/9061684.html&quot;&gt;原文链接&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;本文是在原文上自己总结的内容。&lt;/p&gt;
-
-&lt;h4 id=&quot;vue是如何更新节点的&quot;&gt;Vue是如何更新节点的？&lt;/h4&gt;
-
-&lt;p&gt;普通的渲染真实Dom的开销是非常大的，直接渲染到真实dom上会导致整个dom树的重绘。&lt;/p&gt;
-
-&lt;p&gt;根据真实dom生成一颗VirtualDom，当虚拟Dom某个节点的数据改变后会生成一个新的Vnode，然后将vNode将oldVnode作对比，发现有不一样的地方就直接修改在真实Dom上，将oldVnode的值修改为vNode。&lt;/p&gt;
-
-&lt;p&gt;diff的过程就是调用名为patch的函数，比较新旧节点，一边比较一边给真实dom打补丁。&lt;/p&gt;
-
-&lt;h4 id=&quot;什么是virtualdom&quot;&gt;什么是VirtualDom？&lt;/h4&gt;
-
-&lt;p&gt;virtualDom是将真实的Dom的数据提取出来，以对象的形式模拟树形结构。&lt;/p&gt;
-
-&lt;p&gt;真实Dom&lt;/p&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;233&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;对应的virtualDom&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Vnode&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;tag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;，&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;children&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-		&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;tag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h4 id=&quot;diff的比较方式&quot;&gt;diff的比较方式？&lt;/h4&gt;
-
-&lt;p&gt;在采取diff算法比较新旧节点的时候，比较只在同层级进行，不会&lt;strong&gt;跨层级&lt;/strong&gt;比较。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://images2018.cnblogs.com/blog/998023/201805/998023-20180519212338609-1617459354.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;diff流程图&quot;&gt;diff流程图&lt;/h4&gt;
-
-&lt;p&gt;当数据发生改变时，被订阅者setter会调用Dep.notify通知所有订阅者Watcher,订阅者就会调用patch给真实的Dom打补丁，更新相应的视图。&lt;/p&gt;
-
-&lt;p&gt;Path核心代码&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;patch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;oldVnode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;vnode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;//如果当前节点需要比较&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sameVnode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;oldVnode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;vnode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)){&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//节点完全一样&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;patchVnode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;oldVnode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;vnode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//深入比较&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//不一样则替换当前节点&lt;/span&gt;
-        &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;oEl&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;oldVnode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;el&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//oldVnode对应值&lt;/span&gt;
-        &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;parentEle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;parentNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;oEl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//父元素&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;createEle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;vnode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//根据Vnode生成新元素&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;parentEle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!==&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-            &lt;span class=&quot;nx&quot;&gt;api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;insertBefore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;parentEle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;vnode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;el&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;nextSibling&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;oEl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//将新元素添加进父元素&lt;/span&gt;
-            &lt;span class=&quot;nx&quot;&gt;api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;removeChild&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;parentEle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;oldVnode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;el&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//移出以前的旧元素节点&lt;/span&gt;
-            &lt;span class=&quot;nx&quot;&gt;oldVnode&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;vnode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sameVnode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-    	&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//key值&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tag&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tag&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//标签名&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;isCommnet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;isCommnet&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//是否为注释节点&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;这里，如果两个节点相同，那么继续深入他们的子节点，如果两个节点不同，就代表Vnode完全改变了，就可以直接替换oldVnode。&lt;/p&gt;
-
-&lt;h4 id=&quot;patchvnode干了什么&quot;&gt;patchVnode干了什么&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;找到对应的真实dom&lt;/li&gt;
-  &lt;li&gt;判断Vnode和oldVnode是否指向同一个对象，如果是直接返回。&lt;/li&gt;
-  &lt;li&gt;如果他们都有文本节点，那么将oldVnode的文本替换成vNode的文本节点。&lt;/li&gt;
-  &lt;li&gt;如果oldVnode有子节点，vNode没有子节点，那么删除oldVnode的子节点。&lt;/li&gt;
-  &lt;li&gt;如果他们都有文本节点，且不一样，那么将oldVnode的文本节点替换成vNode的文本节点。&lt;/li&gt;
-  &lt;li&gt;如果oldVnode的子节点为空，vNode有子节点，那么直接将vNode的子节点添加到dom中。&lt;/li&gt;
-  &lt;li&gt;如果两者都有子节点，则执行updateChildren函数比较子节点。&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>feiYu</name></author><category term="Vue" /><summary type="html">DIff算法学习</summary></entry></feed>
+&lt;p&gt;Css树的构建与Dom树一样，读取文档，再将字节转化成字符，确定token（标签），再将token转化为nodes，通过nodes构建Css树。&lt;/p&gt;</content><author><name>feiYu</name></author><category term="浏览器" /><summary type="html">浏览器渲染页面原理与流程</summary></entry><entry><title type="html">浏览器与服务器之间的交互协议</title><link href="http://localhost:4000/2020/12/01/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E9%97%B4%E7%9A%84%E4%BA%A4%E4%BA%92%E5%8D%8F%E8%AE%AE.html" rel="alternate" type="text/html" title="浏览器与服务器之间的交互协议" /><published>2020-12-01T00:00:00+08:00</published><updated>2020-12-01T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/01/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E9%97%B4%E7%9A%84%E4%BA%A4%E4%BA%92%E5%8D%8F%E8%AE%AE</id><content type="html" xml:base="http://localhost:4000/2020/12/01/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E9%97%B4%E7%9A%84%E4%BA%A4%E4%BA%92%E5%8D%8F%E8%AE%AE.html">&lt;h3 id=&quot;浏览器与服务器之间的交互协议&quot;&gt;浏览器与服务器之间的交互协议&lt;/h3&gt;</content><author><name>feiYu</name></author><category term="浏览器" /><summary type="html">浏览器与服务器之间的交互协议</summary></entry></feed>
