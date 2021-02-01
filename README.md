@@ -53,7 +53,9 @@
 >
 > ​	由于本主题是基于 `jekyll 3.8.1` 开发 ，jekyll的版本差异也许会导致相关显示效果的差异。详情请参考官方文档：[news](https://jekyllrb.com/news/)
 
+### 启动博客
 
+bundle exec jekyll serve
 
 ### 配置文档
 

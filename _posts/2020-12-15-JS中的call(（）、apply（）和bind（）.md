@@ -12,7 +12,7 @@ color: rgb(255,210,32)
 
 cover: '../assets/ECMAScript.jpg'
 
-tags: 
+tags: Js
 
 subtitle: " "
 
