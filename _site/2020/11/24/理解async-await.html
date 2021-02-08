@@ -112,8 +112,8 @@ var _hmt = _hmt || [];
   <!-- 页面宽度大于800px -->
   <div class="left-area">
     
-      <a href="/2020/12/01/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96-%E9%87%8D%E7%BB%98%E9%87%8D%E6%8E%92.html" class="btn bounceInLeft animated" onmouseover="showLeft();this.style.color='rgb(255,210,32)';" onmouseout="goneLeft();this.style.color='rgba(0,0,0,.2)';"><</a>
-      <div id="left-tab" style="display:none;"><span class="left-san"></span><span class="left-main" style="color:rgb(255,210,32);"><sapn class="main">前端性能优化之重绘重排</sapn></span></div>
+      <a href="/2020/12/01/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E9%97%B4%E7%9A%84%E4%BA%A4%E4%BA%92%E5%8D%8F%E8%AE%AE.html" class="btn bounceInLeft animated" onmouseover="showLeft();this.style.color='rgb(255,210,32)';" onmouseout="goneLeft();this.style.color='rgba(0,0,0,.2)';"><</a>
+      <div id="left-tab" style="display:none;"><span class="left-san"></span><span class="left-main" style="color:rgb(255,210,32);"><sapn class="main">浏览器与服务器之间的交互协议</sapn></span></div>
     
   </div>
   <div class="post-titlearea">
@@ -132,7 +132,7 @@ var _hmt = _hmt || [];
   <!-- 页面宽度小于800px -->
   <div class="post-changearea">
     
-      <a href="/2020/12/01/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96-%E9%87%8D%E7%BB%98%E9%87%8D%E6%8E%92.html" class="leftchange" style="border-right: 1px solid rgb(255,210,32);border-bottom: 2px solid rgb(255,210,32);"><span>上一篇<br><br>前端性能优化之重绘重排</span></a>
+      <a href="/2020/12/01/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E9%97%B4%E7%9A%84%E4%BA%A4%E4%BA%92%E5%8D%8F%E8%AE%AE.html" class="leftchange" style="border-right: 1px solid rgb(255,210,32);border-bottom: 2px solid rgb(255,210,32);"><span>上一篇<br><br>浏览器与服务器之间的交互协议</span></a>
     
     
       <a href="/2020/11/24/DIff%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0.html" class="rightchange" style="border-left: 1px solid rgb(255,210,32);border-bottom: 2px solid rgb(255,210,32);"><span>下一篇<br><br>对于Vue中的diff算法的学习</span></a>
@@ -146,7 +146,7 @@ var _hmt = _hmt || [];
   
     
       <div class="postpage-subtitle" style="border-left: 8px solid rgb(255,210,32); border-right: 8px solid rgb(255,210,32)">
-        
+         
       </div>
     
   
@@ -177,10 +177,9 @@ var _hmt = _hmt || [];
 <p>来看一个比较典型的情况</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">async</span> <span class="kd">function</span> <span class="k">do</span><span class="p">(){</span>
-	<span class="kd">const</span> <span class="nx">num1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-	<span class="kd">const</span> <span class="nx">num2</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">step1</span><span class="p">(</span><span class="nx">num1</span><span class="p">);</span>
-	<span class="kd">const</span> <span class="nx">num3</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">step2</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span> <span class="nx">num2</span><span class="p">);</span>
-	<span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">step3</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span> <span class="nx">num2</span><span class="p">,</span> <span class="nx">num3</span><span class="p">);</span>
+	<span class="kd">const</span> <span class="nx">num1</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">promise1</span><span class="p">();</span>
+	<span class="kd">const</span> <span class="nx">num2</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">step2</span><span class="p">(</span><span class="nx">num1</span><span class="p">);</span>
+	<span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">step3</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span> <span class="nx">num2</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
@@ -188,15 +187,17 @@ var _hmt = _hmt || [];
 
 <p>来看看用Promise如何写</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="k">do</span><span class="p">(){</span>
-	<span class="kd">const</span> <span class="nx">num1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-	<span class="nx">step1</span><span class="p">(</span><span class="nx">num1</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">num2</span><span class="o">=&gt;</span><span class="p">{</span>
-		<span class="k">return</span> <span class="nx">step2</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span> <span class="nx">num2</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">num3</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="nx">num1</span><span class="p">,</span> <span class="nx">num2</span><span class="p">,</span> <span class="nx">num3</span><span class="p">]);</span>
-	<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">num3</span> <span class="o">=&gt;</span> <span class="p">{</span>
-        <span class="kd">const</span> <span class="p">[</span><span class="nx">num1</span><span class="p">,</span> <span class="nx">num2</span><span class="p">,</span> <span class="nx">num3</span><span class="p">]</span> <span class="o">=</span> <span class="nx">num3</span><span class="p">;</span>
-		<span class="k">return</span> <span class="nx">step3</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span> <span class="nx">num2</span><span class="p">,</span> <span class="nx">num3</span><span class="p">);</span>
-	<span class="p">})</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">makereQuest</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">promise1</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span> <span class="nx">num1</span> <span class="o">=&gt;</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nx">promise2</span><span class="p">(</span> <span class="nx">num1</span> <span class="p">).</span><span class="nx">then</span><span class="p">(</span> <span class="nx">num2</span> <span class="o">=&gt;</span> <span class="p">{</span>
+			<span class="k">return</span> <span class="nx">promise3</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span> <span class="nx">num2</span><span class="p">)</span>
+		<span class="p">})</span>
+	<span class="p">}</span> <span class="p">)</span>
 <span class="p">}</span>
+</code></pre></div></div>
+
+<h5 id="错误栈">错误栈</h5>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 </code></pre></div></div>
 
 

@@ -46,10 +46,9 @@ async function test(){
 
 ```javascript
 async function do(){
-	const num1 = 1;
-	const num2 = await step1(num1);
-	const num3 = await step2(num1, num2);
-	const result = await step3(num1, num2, num3);
+	const num1 = await promise1();
+	const num2 = await step2(num1);
+	const result = await step3(num1, num2);
 }
 ```
 
@@ -58,16 +57,56 @@ async function do(){
 来看看用Promise如何写
 
 ```javascript
-function do(){
-	const num1 = 1;
-	step1(num1).then(num2=>{
-		return step2(num1, num2).then(num3 => [num1, num2, num3]);
-	}).then(num3 => {
-        const [num1, num2, num3] = num3;
-		return step3(num1, num2, num3);
-	})
+const makereQuest = () => {
+	return promise1().then( num1 => {
+		return promise2( num1 ).then( num2 => {
+			return promise3(num1, num2)
+		})
+	} )
 }
 ```
 
+##### 错误栈
 
+> 如果Promise连续调用，对于错误处理是很麻烦的，无法知道错误出自哪里。
+
+```javascript
+   const makeRequest = () => {
+        return callAPromise()
+            .then(() => callAPromise())
+            .then(() => callAPromise())
+            .then(() => callAPromise())
+            .then(() => callAPromise())
+            .then(() => {
+                throw new Error("oops");
+            })
+    }
+
+    makeRequest().catch(err => {
+        console.log(err);
+        // output
+        // Error: oops at callAPromise.then.then.then.then.then (index.js:8:13)
+    })
+```
+
+
+
+async/await中的错误栈会指向所在的函数。在开发环境中，这点优势并不大，但当在分析生产环境的错误日志时，它非常有用。
+
+```javascript
+   const makeRequest = async () => {
+        await callAPromise()
+        await callAPromise()
+        await callAPromise()
+        await callAPromise()
+        await callAPromise()
+        throw new Error("oops");
+    }
+
+    makeRequest().catch(err => {
+        console.log(err);
+        // output
+        // Error: oops at makeRequest (index.js:7:9)
+    })
+```
 

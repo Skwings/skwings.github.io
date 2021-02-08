@@ -1,20 +1,149 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-26T16:16:01+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">绯羽的博客</title><subtitle>白日梦想家</subtitle><author><name>true</name></author><entry><title type="html">关于react中click自执行</title><link href="http://localhost:4000/2021/01/02/%E5%85%B3%E4%BA%8EReact%E4%B8%ADclick%E8%87%AA%E6%89%A7%E8%A1%8C.html" rel="alternate" type="text/html" title="关于react中click自执行" /><published>2021-01-02T00:00:00+08:00</published><updated>2021-01-02T00:00:00+08:00</updated><id>http://localhost:4000/2021/01/02/%E5%85%B3%E4%BA%8EReact%E4%B8%ADclick%E8%87%AA%E6%89%A7%E8%A1%8C</id><content type="html" xml:base="http://localhost:4000/2021/01/02/%E5%85%B3%E4%BA%8EReact%E4%B8%ADclick%E8%87%AA%E6%89%A7%E8%A1%8C.html">&lt;h3 id=&quot;关于react中click自执行&quot;&gt;关于React中click自执行&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-02-08T15:44:37+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">绯羽的博客</title><subtitle>白日梦想家</subtitle><author><name>true</name></author><entry><title type="html">Hook的出现是否意味着class将会被替代</title><link href="http://localhost:4000/2021/01/03/Hook%E7%9A%84%E5%87%BA%E7%8E%B0%E6%98%AF%E5%90%A6%E6%84%8F%E5%91%B3%E7%9D%80class%E5%B0%86%E4%BC%9A%E8%A2%AB%E6%9B%BF%E4%BB%A3.html" rel="alternate" type="text/html" title="Hook的出现是否意味着class将会被替代" /><published>2021-01-03T00:00:00+08:00</published><updated>2021-01-03T00:00:00+08:00</updated><id>http://localhost:4000/2021/01/03/Hook%E7%9A%84%E5%87%BA%E7%8E%B0%E6%98%AF%E5%90%A6%E6%84%8F%E5%91%B3%E7%9D%80class%E5%B0%86%E4%BC%9A%E8%A2%AB%E6%9B%BF%E4%BB%A3</id><content type="html" xml:base="http://localhost:4000/2021/01/03/Hook%E7%9A%84%E5%87%BA%E7%8E%B0%E6%98%AF%E5%90%A6%E6%84%8F%E5%91%B3%E7%9D%80class%E5%B0%86%E4%BC%9A%E8%A2%AB%E6%9B%BF%E4%BB%A3.html">&lt;h3 id=&quot;hook的出现是否意味着class将会被替代&quot;&gt;Hook的出现是否意味着class将会被替代&lt;/h3&gt;</content><author><name>true</name></author><summary type="html">Hook的出现是否意味着class将会被替代</summary></entry><entry><title type="html">React中的useeffect</title><link href="http://localhost:4000/2020/12/18/React%E4%B8%AD%E7%9A%84UseEffect.html" rel="alternate" type="text/html" title="React中的useeffect" /><published>2020-12-18T00:00:00+08:00</published><updated>2020-12-18T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/18/React%E4%B8%AD%E7%9A%84UseEffect</id><content type="html" xml:base="http://localhost:4000/2020/12/18/React%E4%B8%AD%E7%9A%84UseEffect.html">&lt;h3 id=&quot;react中的useeffect&quot;&gt;React中的UseEffect&lt;/h3&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;onClick = {此处为函数引用或匿名函数}&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;react官方推崇我们使用钩子函数（与之对应的是Es6类），因为钩子函数代码更加简洁。较为符合React本质。&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;所以如果&lt;code class=&quot;highlighter-rouge&quot;&gt;onclick={this.handle()}&lt;/code&gt;这种写法就相当于写了一个自执行函数，会在页面初始化时执行。点击的话也不会触发相应的事件。&lt;/p&gt;
+&lt;h4 id=&quot;useeffect出现的原因&quot;&gt;UseEffect出现的原因&lt;/h4&gt;
 
-&lt;p&gt;解决方案&lt;/p&gt;
+&lt;p&gt;类与函数的差异&lt;/p&gt;
 
-&lt;p&gt;方法一&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;类是数据和逻辑的封装。组件的数据与操作应被写于同一个Class中。&lt;/li&gt;
+  &lt;li&gt;函数一般来说需要做的就是返回一个值。如果有多个操作，每个操作应该写成一个单独的函数。而且数据的状态与操作应该分离。&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;onClick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;handle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;p&gt;如下就是一个存函数：不改变数据的状态，只依据输入返回相应的代码。&lt;/p&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;funciton&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Welcome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;方法二&lt;/p&gt;
+&lt;h4 id=&quot;什么是负效应&quot;&gt;什么是负效应&lt;/h4&gt;
 
-&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;onClick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;handle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()}}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>true</name></author><summary type="html">关于React中click自执行</summary></entry><entry><title type="html">对于开发管理流程的思考</title><link href="http://localhost:4000/2020/12/16/%E5%AF%B9%E4%BA%8E%E5%BC%80%E5%8F%91%E7%AE%A1%E7%90%86%E6%B5%81%E7%A8%8B%E4%B8%8E%E6%8F%90%E5%8D%87%E7%B3%BB%E7%BB%9F%E5%8F%AF%E7%94%A8%E6%80%A7%E7%9A%84%E6%80%9D%E8%80%83.html" rel="alternate" type="text/html" title="对于开发管理流程的思考" /><published>2020-12-16T00:00:00+08:00</published><updated>2020-12-16T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/16/%E5%AF%B9%E4%BA%8E%E5%BC%80%E5%8F%91%E7%AE%A1%E7%90%86%E6%B5%81%E7%A8%8B%E4%B8%8E%E6%8F%90%E5%8D%87%E7%B3%BB%E7%BB%9F%E5%8F%AF%E7%94%A8%E6%80%A7%E7%9A%84%E6%80%9D%E8%80%83</id><content type="html" xml:base="http://localhost:4000/2020/12/16/%E5%AF%B9%E4%BA%8E%E5%BC%80%E5%8F%91%E7%AE%A1%E7%90%86%E6%B5%81%E7%A8%8B%E4%B8%8E%E6%8F%90%E5%8D%87%E7%B3%BB%E7%BB%9F%E5%8F%AF%E7%94%A8%E6%80%A7%E7%9A%84%E6%80%9D%E8%80%83.html">&lt;h3 id=&quot;对于开发管理流程的思考&quot;&gt;对于开发管理流程的思考&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;函数式编程将那些和数据计算无关的操作（生成日志、存储数据、改变应用状态等），都称之为负效应。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;钩子hook的作用&quot;&gt;钩子（hook）的作用&lt;/h4&gt;
+
+&lt;p&gt;hook的作用就是用来处理React组件中副效应。函数组件的主体用来返回HTML代码，其他副效应操作都应该通过钩子引入。&lt;/p&gt;
+
+&lt;p&gt;钩子有多种：&lt;/p&gt;
+
+&lt;p&gt;useState（）：保存状态&lt;/p&gt;
+
+&lt;p&gt;useContext（）：保存上下文&lt;/p&gt;
+
+&lt;p&gt;useRef（）：保存引用&lt;/p&gt;
+
+&lt;p&gt;…&lt;/p&gt;
+
+&lt;h4 id=&quot;useeffect的作用&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;UseEffect&lt;/code&gt;的作用&lt;/h4&gt;
+
+&lt;p&gt;就是一个通用的&lt;code class=&quot;highlighter-rouge&quot;&gt;副效应钩子&lt;/code&gt;。找不到对应钩子时就可以用它。&lt;/p&gt;
+
+&lt;p&gt;语法：&lt;/p&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;useEffect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sidefn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;依赖项&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;用法&quot;&gt;用法：&lt;/h5&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Welcome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;useEffect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;title&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Loaded&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;这个例子中，组件每渲染一次，该函数就会执行一次。组件在网页Dom初始化后，副效应函数也会执行。&lt;/p&gt;
+
+&lt;h5 id=&quot;第二个参数&quot;&gt;第二个参数&lt;/h5&gt;
+
+&lt;p&gt;useEffect的第二个参数可以指定一个依赖项，避免useEffect在每次渲染时都被执行，当依赖项发生改变时才会执行函数。&lt;/p&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Welcome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;useEffect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;title&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;`Hello, &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;Hello, &lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;第二个参数可以传入一个数组，声明依赖项。如果是传入空数组，则只在组件加载时才会执行，只执行一次。&lt;/p&gt;
+
+&lt;h4 id=&quot;useeffect常见使用场景&quot;&gt;useEffect常见使用场景&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;获取数据&lt;/li&gt;
+  &lt;li&gt;事件监听&lt;/li&gt;
+  &lt;li&gt;改变Dom&lt;/li&gt;
+  &lt;li&gt;输出日志&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;useeffect的返回值&quot;&gt;UseEffect的返回值&lt;/h4&gt;
+
+&lt;p&gt;UseEffect允许返回一个函数，这个函数在组件被卸载时会触发。&lt;/p&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;useEffect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;subscription&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;subscribe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;subscription&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;unsubscribe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;每次使用UseEffect时，如果有多个副效应，则应该调用多个UseEffect，而不是合并写在一起。&lt;/p&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;varA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;setVarA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;useState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;varB&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;setVarB&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;useState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;useEffect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;timeout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;setVarA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;varA&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;clearTimeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;timeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;varA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;useEffect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;timeout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;setVarB&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;varB&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;clearTimeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;timeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;varB&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;span&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;varA&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;, &lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;varB&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;span&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>true</name></author><summary type="html">React中的UseEffect</summary></entry><entry><title type="html">React中的事件处理机制</title><link href="http://localhost:4000/2020/12/18/React%E4%B8%AD%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6.html" rel="alternate" type="text/html" title="React中的事件处理机制" /><published>2020-12-18T00:00:00+08:00</published><updated>2020-12-18T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/18/React%E4%B8%AD%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6</id><content type="html" xml:base="http://localhost:4000/2020/12/18/React%E4%B8%AD%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6.html">&lt;h3 id=&quot;react中的事件处理机制&quot;&gt;React中的事件处理机制&lt;/h3&gt;
+
+&lt;h4 id=&quot;阻止默认事件&quot;&gt;阻止默认事件&lt;/h4&gt;
+
+&lt;p&gt;原始写法&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;onclick=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'eventHandle'&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    Active lasers
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;react&lt;/p&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ActionLink&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;handleClick&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;preventDefault&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;The link was clicked.&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;handleClick&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+      Click me
+    &lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;button&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;添加事件监听&quot;&gt;添加事件监听&lt;/h4&gt;</content><author><name>true</name></author><summary type="html">React中的事件处理机制</summary></entry><entry><title type="html">对于开发管理流程的思考</title><link href="http://localhost:4000/2020/12/17/%E5%AF%B9%E4%BA%8E%E5%BC%80%E5%8F%91%E7%AE%A1%E7%90%86%E6%B5%81%E7%A8%8B%E4%B8%8E%E6%8F%90%E5%8D%87%E7%B3%BB%E7%BB%9F%E5%8F%AF%E7%94%A8%E6%80%A7%E7%9A%84%E6%80%9D%E8%80%83.html" rel="alternate" type="text/html" title="对于开发管理流程的思考" /><published>2020-12-17T00:00:00+08:00</published><updated>2020-12-17T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/17/%E5%AF%B9%E4%BA%8E%E5%BC%80%E5%8F%91%E7%AE%A1%E7%90%86%E6%B5%81%E7%A8%8B%E4%B8%8E%E6%8F%90%E5%8D%87%E7%B3%BB%E7%BB%9F%E5%8F%AF%E7%94%A8%E6%80%A7%E7%9A%84%E6%80%9D%E8%80%83</id><content type="html" xml:base="http://localhost:4000/2020/12/17/%E5%AF%B9%E4%BA%8E%E5%BC%80%E5%8F%91%E7%AE%A1%E7%90%86%E6%B5%81%E7%A8%8B%E4%B8%8E%E6%8F%90%E5%8D%87%E7%B3%BB%E7%BB%9F%E5%8F%AF%E7%94%A8%E6%80%A7%E7%9A%84%E6%80%9D%E8%80%83.html">&lt;h3 id=&quot;对于开发管理流程的思考&quot;&gt;对于开发管理流程的思考&lt;/h3&gt;
 
 &lt;p&gt;&lt;strong&gt;版本开发：&lt;/strong&gt;
 1、开发人员认真阅读需求文档，检查澄清会议中提出问题需求文档是否已经修改，最新的需求文档是否合理，有没有问题或者疑问，有问题及时提出。
@@ -52,7 +181,82 @@
 
 &lt;p&gt;异地容灾，当IT系统只在一处部署时，当突发停电或自然灾害等情况时，也难以保障正常提供服务。在A地点部署主用系统，同时在B地点对关键应用及数据进行异地灾备。当主用系统不可以用时，启用备用系统，以增强系统的可用性。&lt;/p&gt;
 
-&lt;p&gt;应用服务方面，系统中有多个应用程序向外提供服务，这些应用程序需同时部署于多台服务器，当某一个服务节点出现问题时，其他的节点仍能保持服务不中断，形成冗余备份。当服务器断电重启时，应用程序（服务组件）应具备自动启动的能力，保障系统的高可用。&lt;/p&gt;</content><author><name>feiYu</name></author><category term="开发管理" /><summary type="html">对于开发管理流程的思考</summary></entry><entry><title type="html">JS中的call(（）、apply（）和bind（）</title><link href="http://localhost:4000/2020/12/15/JS%E4%B8%AD%E7%9A%84call(-apply-%E5%92%8Cbind.html" rel="alternate" type="text/html" title="JS中的call(（）、apply（）和bind（）" /><published>2020-12-15T00:00:00+08:00</published><updated>2020-12-15T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/15/JS%E4%B8%AD%E7%9A%84call(()%E3%80%81apply()%E5%92%8Cbind()</id><content type="html" xml:base="http://localhost:4000/2020/12/15/JS%E4%B8%AD%E7%9A%84call(-apply-%E5%92%8Cbind.html">&lt;h3 id=&quot;js中的callapply和bind&quot;&gt;JS中的call(（）、apply（）和bind（）&lt;/h3&gt;
+&lt;p&gt;应用服务方面，系统中有多个应用程序向外提供服务，这些应用程序需同时部署于多台服务器，当某一个服务节点出现问题时，其他的节点仍能保持服务不中断，形成冗余备份。当服务器断电重启时，应用程序（服务组件）应具备自动启动的能力，保障系统的高可用。&lt;/p&gt;</content><author><name>feiYu</name></author><category term="杂谈" /><summary type="html">对于开发管理流程的思考</summary></entry><entry><title type="html">React中的生命周期函数</title><link href="http://localhost:4000/2020/12/17/React%E4%B8%AD%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0.html" rel="alternate" type="text/html" title="React中的生命周期函数" /><published>2020-12-17T00:00:00+08:00</published><updated>2020-12-17T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/17/React%E4%B8%AD%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0</id><content type="html" xml:base="http://localhost:4000/2020/12/17/React%E4%B8%AD%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0.html">&lt;h3 id=&quot;react中的生命周期函数&quot;&gt;React中的生命周期函数&lt;/h3&gt;
+
+&lt;h5 id=&quot;1组件将要挂载时触发的函数componentwillmount&quot;&gt;1、组件将要挂载时触发的函数：componentWillMount&lt;/h5&gt;
+
+&lt;h5 id=&quot;2组件挂载完成时触发的函数componentdidmount&quot;&gt;2、组件挂载完成时触发的函数：componentDidMount&lt;/h5&gt;
+
+&lt;h5 id=&quot;3是否要更新数据时触发的函数shouldcomponentupdate&quot;&gt;3、是否要更新数据时触发的函数：shouldComponentUpdate&lt;/h5&gt;
+
+&lt;h5 id=&quot;4数据更新完成时触发的函数componentdidupdate&quot;&gt;4、数据更新完成时触发的函数：componentDidUpdate&lt;/h5&gt;
+
+&lt;h5 id=&quot;6组件将要销毁时触发的函数componentwillunmount&quot;&gt;6、组件将要销毁时触发的函数：componentWillUnmount&lt;/h5&gt;
+
+&lt;p&gt;挂载阶段&lt;/p&gt;
+
+&lt;p&gt;当组件实例被创建并插入DOM时，其生命周期调用顺序如下：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;constructor()&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;在React组件挂载之前，会调用它的构造函数。constructor(props)，在为react.Component子类实现构造函数时，因在其他语句之前调用super(props)。否则，&lt;code class=&quot;highlighter-rouge&quot;&gt;this.props&lt;/code&gt;在构造函数中可能会出现未定义的bug。&lt;/p&gt;
+
+      &lt;p&gt;在react中，构造函数用于以下两种情况&lt;/p&gt;
+
+      &lt;ul&gt;
+        &lt;li&gt;给this.state赋值初始化内部state&lt;/li&gt;
+        &lt;li&gt;为事件处理函数是绑定实例&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/blockquote&gt;
+
+    &lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;state&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;counter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;handleClick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;handleClick&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bind&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;static getDerivedStateFormProps()&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;getDerivedStateFormProps()&lt;/code&gt;会在调用render方法之前调用，并且在初始挂载时以及后续更新时都会被调用。它应该返回一个对象来更新state，如果返回null则不更新任何内容。&lt;/p&gt;
+
+      &lt;p&gt;此方法适用于state的值在任何时候都取决于props&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;render()&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;render()&lt;/code&gt;时react中唯一必须实现的方法。他会返回：&lt;/p&gt;
+
+      &lt;ul&gt;
+        &lt;li&gt;react元素&lt;/li&gt;
+        &lt;li&gt;数组或fragments （使render可以返回多个元素）&lt;/li&gt;
+        &lt;li&gt;portals （渲染子节点到不同的Dom子树中）&lt;/li&gt;
+        &lt;li&gt;字符串或数值类型 （渲染为文本节点）&lt;/li&gt;
+        &lt;li&gt;布尔类型或null（test &amp;amp;&amp;amp; &lt;Child&gt;&lt;/Child&gt;  其中test为布尔类型）&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;componentDidMount()&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;数据更新阶段&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;static getDeriverdStateFormProps()&lt;/li&gt;
+  &lt;li&gt;shouldComponentUpdate()&lt;/li&gt;
+  &lt;li&gt;render()&lt;/li&gt;
+  &lt;li&gt;getSnapshotBeforeUpdate()&lt;/li&gt;
+  &lt;li&gt;componentDidUpdate()&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>feiYu</name></author><category term="React" /><summary type="html">React中的生命周期函数</summary></entry><entry><title type="html">JS中的call(（）、apply（）和bind（）</title><link href="http://localhost:4000/2020/12/15/JS%E4%B8%AD%E7%9A%84call(-apply-%E5%92%8Cbind.html" rel="alternate" type="text/html" title="JS中的call(（）、apply（）和bind（）" /><published>2020-12-15T00:00:00+08:00</published><updated>2020-12-15T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/15/JS%E4%B8%AD%E7%9A%84call(()%E3%80%81apply()%E5%92%8Cbind()</id><content type="html" xml:base="http://localhost:4000/2020/12/15/JS%E4%B8%AD%E7%9A%84call(-apply-%E5%92%8Cbind.html">&lt;h3 id=&quot;js中的callapply和bind&quot;&gt;JS中的call(（）、apply（）和bind（）&lt;/h3&gt;
 
 &lt;p&gt;再js中，call、apply、bind都是用来改变原函数执行上下文，也就是说，改变函数执行时内部的this指向。&lt;/p&gt;
 
@@ -98,7 +302,86 @@
 &lt;span class=&quot;c1&quot;&gt;//如果直接push的话，会将ele整个作为一个元素传递给array&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;实现继承&lt;/p&gt;</content><author><name>feiYu</name></author><category term="Js" /><summary type="html">JS中的call(（）、apply（）和bind（）</summary></entry><entry><title type="html">谈谈浏览器的两种缓存机制</title><link href="http://localhost:4000/2020/12/14/%E8%B0%88%E8%B0%88%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6.html" rel="alternate" type="text/html" title="谈谈浏览器的两种缓存机制" /><published>2020-12-14T00:00:00+08:00</published><updated>2020-12-14T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/14/%E8%B0%88%E8%B0%88%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6</id><content type="html" xml:base="http://localhost:4000/2020/12/14/%E8%B0%88%E8%B0%88%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6.html">&lt;h3 id=&quot;谈谈浏览器的两种缓存机制&quot;&gt;谈谈浏览器的两种缓存机制&lt;/h3&gt;</content><author><name>feiYu</name></author><category term="浏览器" /><summary type="html">谈谈浏览器的两种缓存机制</summary></entry><entry><title type="html">对于Vuex中actions与mutations区别的理解</title><link href="http://localhost:4000/2020/12/09/%E5%AF%B9%E4%BA%8EVuex%E4%B8%AD%E7%9A%84actions%E4%B8%8Emutations%E5%8C%BA%E5%88%AB%E7%9A%84%E7%90%86%E8%A7%A3.html" rel="alternate" type="text/html" title="对于Vuex中actions与mutations区别的理解" /><published>2020-12-09T00:00:00+08:00</published><updated>2020-12-09T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/09/%E5%AF%B9%E4%BA%8EVuex%E4%B8%AD%E7%9A%84actions%E4%B8%8Emutations%E5%8C%BA%E5%88%AB%E7%9A%84%E7%90%86%E8%A7%A3</id><content type="html" xml:base="http://localhost:4000/2020/12/09/%E5%AF%B9%E4%BA%8EVuex%E4%B8%AD%E7%9A%84actions%E4%B8%8Emutations%E5%8C%BA%E5%88%AB%E7%9A%84%E7%90%86%E8%A7%A3.html">&lt;h3 id=&quot;对于vuex中的actions与mutations区别的理解&quot;&gt;对于Vuex中的actions与mutations区别的理解&lt;/h3&gt;
+&lt;p&gt;实现继承&lt;/p&gt;</content><author><name>feiYu</name></author><category term="Js" /><summary type="html">JS中的call(（）、apply（）和bind（）</summary></entry><entry><title type="html">谈谈浏览器的两种缓存机制</title><link href="http://localhost:4000/2020/12/14/%E8%B0%88%E8%B0%88%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6.html" rel="alternate" type="text/html" title="谈谈浏览器的两种缓存机制" /><published>2020-12-14T00:00:00+08:00</published><updated>2020-12-14T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/14/%E8%B0%88%E8%B0%88%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6</id><content type="html" xml:base="http://localhost:4000/2020/12/14/%E8%B0%88%E8%B0%88%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6.html">&lt;h3 id=&quot;谈谈浏览器的两种缓存机制&quot;&gt;谈谈浏览器的两种缓存机制&lt;/h3&gt;</content><author><name>feiYu</name></author><category term="浏览器" /><summary type="html">谈谈浏览器的两种缓存机制</summary></entry><entry><title type="html">谈谈浏览器的两种缓存机制</title><link href="http://localhost:4000/2020/12/10/React%E4%B8%AD%E7%9A%84Fragments.html" rel="alternate" type="text/html" title="谈谈浏览器的两种缓存机制" /><published>2020-12-10T00:00:00+08:00</published><updated>2020-12-10T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/10/React%E4%B8%AD%E7%9A%84Fragments</id><content type="html" xml:base="http://localhost:4000/2020/12/10/React%E4%B8%AD%E7%9A%84Fragments.html">&lt;h3 id=&quot;react中的fragments&quot;&gt;React中的Fragments&lt;/h3&gt;
+
+&lt;p&gt;Fragments的作用：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;fragments允许你将子列表分组，并且无需向Dom节点添加额外节点。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;语法一：&lt;/p&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Fragment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ChildA&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;/&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ChildB&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;/&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ChildC&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Fragment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;语法二：&lt;/p&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;&amp;lt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ChildA&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;/&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ChildB&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;/&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ChildC&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;&amp;lt;/&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;为什么要用fragments&quot;&gt;为什么要用fragments&lt;/h4&gt;
+
+&lt;p&gt;例如现在有这样一个场景，父组件table，需要子组件返回&amp;lt;td&amp;gt;来渲染元素。&lt;/p&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Table&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;table&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;tr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Columns&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;tr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;table&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Columns&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;td&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;Hello&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;td&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;td&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;World&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;td&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;此时子组件&lt;Colums&gt;&lt;/Colums&gt;返回了的react元素中使用了父&amp;lt;div&amp;gt;，这样导致了table不能正常渲染。&lt;/p&gt;
+
+&lt;p&gt;此时就可以用fragments解决这个问题。&lt;/p&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Columns&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Fragments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;td&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;Hello&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;td&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;td&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;World&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;td&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Fragments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;此时返回的就是正常的&amp;lt;td&amp;gt;&lt;/p&gt;</content><author><name>feiYu</name></author><category term="React" /><summary type="html">React中的Fragments</summary></entry><entry><title type="html">对于Vuex中的actions与mutations区别的理解</title><link href="http://localhost:4000/2020/12/09/%E5%AF%B9%E4%BA%8EVuex%E4%B8%AD%E7%9A%84actions%E4%B8%8Emutations%E5%8C%BA%E5%88%AB%E7%9A%84%E7%90%86%E8%A7%A3.html" rel="alternate" type="text/html" title="对于Vuex中的actions与mutations区别的理解" /><published>2020-12-09T00:00:00+08:00</published><updated>2020-12-09T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/09/%E5%AF%B9%E4%BA%8EVuex%E4%B8%AD%E7%9A%84actions%E4%B8%8Emutations%E5%8C%BA%E5%88%AB%E7%9A%84%E7%90%86%E8%A7%A3</id><content type="html" xml:base="http://localhost:4000/2020/12/09/%E5%AF%B9%E4%BA%8EVuex%E4%B8%AD%E7%9A%84actions%E4%B8%8Emutations%E5%8C%BA%E5%88%AB%E7%9A%84%E7%90%86%E8%A7%A3.html">&lt;h3 id=&quot;对于vuex中的actions与mutations区别的理解&quot;&gt;对于Vuex中的actions与mutations区别的理解&lt;/h3&gt;
 
 &lt;p&gt;actions与mutations同样可以实现异步操作，为什么异步操作要用actions而不是mutations呢？&lt;/p&gt;
 
@@ -117,7 +400,7 @@
 &lt;ul&gt;
   &lt;li&gt;Mutation中写的是同步函数，actions中写的需要是异步函数，这是一种约定，为了更好的追踪vuex的状态变更，我们都需要按照这种原则进行开发。&lt;/li&gt;
   &lt;li&gt;更改state的唯一方法是提交mutation，action中需要通过commit触发mutation。&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>feiYu</name></author><category term="vue" /><category term="vuex" /><summary type="html">对于Vuex中的actions与mutations区别的理解</summary></entry><entry><title type="html">对于vuex状态管理的理解</title><link href="http://localhost:4000/2020/12/09/%E5%AF%B9Vuex%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E7%9A%84%E7%90%86%E8%A7%A3.html" rel="alternate" type="text/html" title="对于vuex状态管理的理解" /><published>2020-12-09T00:00:00+08:00</published><updated>2020-12-09T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/09/%E5%AF%B9Vuex%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E7%9A%84%E7%90%86%E8%A7%A3</id><content type="html" xml:base="http://localhost:4000/2020/12/09/%E5%AF%B9Vuex%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E7%9A%84%E7%90%86%E8%A7%A3.html">&lt;h3 id=&quot;对vuex状态管理的理解&quot;&gt;对Vuex状态管理的理解&lt;/h3&gt;
+&lt;/ul&gt;</content><author><name>feiYu</name></author><category term="Vue" /><summary type="html">对于Vuex中的actions与mutations区别的理解</summary></entry><entry><title type="html">对Vuex状态管理的理解</title><link href="http://localhost:4000/2020/12/07/%E5%AF%B9Vuex%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E7%9A%84%E7%90%86%E8%A7%A3.html" rel="alternate" type="text/html" title="对Vuex状态管理的理解" /><published>2020-12-07T00:00:00+08:00</published><updated>2020-12-07T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/07/%E5%AF%B9Vuex%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E7%9A%84%E7%90%86%E8%A7%A3</id><content type="html" xml:base="http://localhost:4000/2020/12/07/%E5%AF%B9Vuex%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E7%9A%84%E7%90%86%E8%A7%A3.html">&lt;h3 id=&quot;对vuex状态管理的理解&quot;&gt;对Vuex状态管理的理解&lt;/h3&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;vue官方文档对于Vuex的定义：是一种状态管理模式，采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态已一种可预测的方式发生变化。&lt;/p&gt;
@@ -154,96 +437,4 @@
 
 &lt;p&gt;通过 &lt;code class=&quot;highlighter-rouge&quot;&gt;定义与隔离&lt;/code&gt; 状态管理中的各种概念并通过强制规则维持视图与状态间的独立性。&lt;/p&gt;
 
-&lt;p&gt;以上就是vuex的基本概念&lt;/p&gt;</content><author><name>feiYu</name></author><category term="vue" /><category term="vuex" /><summary type="html">对Vuex状态管理的理解</summary></entry><entry><title type="html">重零开始搭建自己的vue项目</title><link href="http://localhost:4000/2020/12/02/%E9%87%8D%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84VUE%E9%A1%B9%E7%9B%AE.html" rel="alternate" type="text/html" title="重零开始搭建自己的vue项目" /><published>2020-12-02T00:00:00+08:00</published><updated>2020-12-02T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/02/%E9%87%8D%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84VUE%E9%A1%B9%E7%9B%AE</id><content type="html" xml:base="http://localhost:4000/2020/12/02/%E9%87%8D%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84VUE%E9%A1%B9%E7%9B%AE.html">&lt;h3 id=&quot;重零开始搭建前后端分离项目vue--node--express&quot;&gt;重零开始搭建前后端分离项目（Vue + node + express）&lt;/h3&gt;
-
-&lt;p&gt;前端框架 &lt;a href=&quot;http://localhost:3000/showMsg&quot;&gt;项目地址&lt;/a&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;项目框架 Vue
-Css sass
-Js TypeScript
-接口请求 Axios
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;后台框架 &lt;a href=&quot;http://localhost:3000/showMsg&quot;&gt;项目地址&lt;/a&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;开发语言 Node
-框架 express
-数据库 mongodb
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h4 id=&quot;一初始化前台本地项目&quot;&gt;一、初始化前台本地项目&lt;/h4&gt;
-&lt;p&gt;1、全局安装vue-cli
-&lt;code class=&quot;highlighter-rouge&quot;&gt;npm install -g @vue/cli&lt;/code&gt;
-查看vue-cli版本
-&lt;code class=&quot;highlighter-rouge&quot;&gt;vue -V&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;初始化项目&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;vue init webpack my-vue-project&lt;/code&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;二初始化后台项目&quot;&gt;二、初始化后台项目&lt;/h3&gt;
-
-&lt;p&gt;1、 全局安装express-generator&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cnpm install express-generator -g&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;2、初始化项目&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;express --view=pug express-project&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;3、安装supervisor&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cnpm install supervisor -g&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;4、修改配置为 &lt;code class=&quot;highlighter-rouge&quot;&gt;supervisor ./bin/www&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;执行&lt;code class=&quot;highlighter-rouge&quot;&gt;supervisor node./bin/www&lt;/code&gt;&lt;/p&gt;</content><author><name>true</name></author><summary type="html">重零开始搭建前后端分离项目（Vue + node + express）</summary></entry><entry><title type="html">前端性能优化之重绘重排</title><link href="http://localhost:4000/2020/12/01/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96-%E9%87%8D%E7%BB%98%E9%87%8D%E6%8E%92.html" rel="alternate" type="text/html" title="前端性能优化之重绘重排" /><published>2020-12-01T00:00:00+08:00</published><updated>2020-12-01T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/01/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E2%80%94%E2%80%94%E9%87%8D%E7%BB%98%E9%87%8D%E6%8E%92</id><content type="html" xml:base="http://localhost:4000/2020/12/01/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96-%E9%87%8D%E7%BB%98%E9%87%8D%E6%8E%92.html">&lt;h3 id=&quot;前端性能优化重绘重排&quot;&gt;前端性能优化——重绘重排&lt;/h3&gt;
-
-&lt;p&gt;首先来了解几个概念&lt;/p&gt;
-
-&lt;blockquote&gt;
-
-&lt;/blockquote&gt;</content><author><name>feiYu</name></author><category term="性能优化" /><summary type="html">前端性能优化——重绘重排</summary></entry><entry><title type="html">浏览器渲染页面原理与流程</title><link href="http://localhost:4000/2020/12/01/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E5%8E%9F%E7%90%86%E4%B8%8E%E6%B5%81%E7%A8%8B.html" rel="alternate" type="text/html" title="浏览器渲染页面原理与流程" /><published>2020-12-01T00:00:00+08:00</published><updated>2020-12-01T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/01/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E5%8E%9F%E7%90%86%E4%B8%8E%E6%B5%81%E7%A8%8B</id><content type="html" xml:base="http://localhost:4000/2020/12/01/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E5%8E%9F%E7%90%86%E4%B8%8E%E6%B5%81%E7%A8%8B.html">&lt;h3 id=&quot;浏览器渲染页面原理与流程&quot;&gt;浏览器渲染页面原理与流程&lt;/h3&gt;
-
-&lt;p&gt;首先来了解几个概念&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;dom树：表示一个页面的结构&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;渲染树：表示一个页面如何展示&lt;/li&gt;
-  &lt;li&gt;CssRuleTree： 将Css解析成树形的数据结构&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;浏览器在将域名通过网络通信从服务器中拿到Html页面后，根据Html文件结构构建&lt;code class=&quot;highlighter-rouge&quot;&gt;Dom树&lt;/code&gt;与&lt;code class=&quot;highlighter-rouge&quot;&gt;Css Rule Tree&lt;/code&gt;。&lt;/li&gt;
-  &lt;li&gt;过程中遇到了Js的话，会阻塞DOM树以及CSS树的构建，优先加载Js，加载完毕后才继续进行DOM树和CSS树的构建。&lt;/li&gt;
-  &lt;li&gt;当两者构建完毕后就开始进行渲染树的构建&lt;code class=&quot;highlighter-rouge&quot;&gt;renderTree&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;进行页面的布局计算（重排），重排后开始绘制页面（重绘）。此后若如果Js操作了DOM节点，改变了页面布局，则开始重新进行重重排或重绘。&lt;a href=&quot;&quot;&gt;前端性能—重绘与重排详情&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h4 id=&quot;dom树&quot;&gt;Dom树&lt;/h4&gt;
-
-&lt;p&gt;Html中的所有元素都是节点，所有节点都有层级关系，就像一个树形的结构。&lt;/p&gt;
-
-&lt;p&gt;常见的几种节点：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;文档节点&lt;/li&gt;
-  &lt;li&gt;元素节点&lt;/li&gt;
-  &lt;li&gt;文本节点&lt;/li&gt;
-  &lt;li&gt;属性节点&lt;/li&gt;
-  &lt;li&gt;注释节点&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Dom树的构建相当与一次深度优先遍历。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;D:\MyBlog\skwings.github.io\assets\images\dom.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;构建css树&quot;&gt;构建CSS树&lt;/h4&gt;
-
-&lt;p&gt;Css文档中的所有的元素也是节点，Css中所有节点同样拥有层级关系，如父子关系、兄弟元素等，以此构建Css树。&lt;/p&gt;
-
-&lt;p&gt;由于在构建dom树的过程中，Html中含有link标签，浏览器由此预见了需要此资源来渲染页面，所以会在构建dom树时就开始进行对此Css资源的请求，并进行Dom树的构建。&lt;/p&gt;
-
-&lt;p&gt;Css树的构建与Dom树一样，读取文档，再将字节转化成字符，确定token（标签），再将token转化为nodes，通过nodes构建Css树。&lt;/p&gt;</content><author><name>feiYu</name></author><category term="浏览器" /><summary type="html">浏览器渲染页面原理与流程</summary></entry><entry><title type="html">浏览器与服务器之间的交互协议</title><link href="http://localhost:4000/2020/12/01/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E9%97%B4%E7%9A%84%E4%BA%A4%E4%BA%92%E5%8D%8F%E8%AE%AE.html" rel="alternate" type="text/html" title="浏览器与服务器之间的交互协议" /><published>2020-12-01T00:00:00+08:00</published><updated>2020-12-01T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/01/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E9%97%B4%E7%9A%84%E4%BA%A4%E4%BA%92%E5%8D%8F%E8%AE%AE</id><content type="html" xml:base="http://localhost:4000/2020/12/01/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E9%97%B4%E7%9A%84%E4%BA%A4%E4%BA%92%E5%8D%8F%E8%AE%AE.html">&lt;h3 id=&quot;浏览器与服务器之间的交互协议&quot;&gt;浏览器与服务器之间的交互协议&lt;/h3&gt;</content><author><name>feiYu</name></author><category term="浏览器" /><summary type="html">浏览器与服务器之间的交互协议</summary></entry></feed>
+&lt;p&gt;以上就是vuex的基本概念&lt;/p&gt;</content><author><name>feiYu</name></author><category term="Vue" /><summary type="html">对Vuex状态管理的理解</summary></entry></feed>

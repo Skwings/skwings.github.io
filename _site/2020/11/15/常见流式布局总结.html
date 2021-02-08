@@ -1,0 +1,130 @@
+<h3 id="常见流式布局总结">常见流式布局总结</h3>
+
+<h4 id="流式布局的特征">流式布局的特征</h4>
+
+<ul>
+  <li>宽度自适应，高度固定。对于大屏幕的用户来说，体验不是最佳。</li>
+  <li>图标大小固定，包括字体大小也是固定。</li>
+  <li>对于一些大的图片宽高自适应。</li>
+</ul>
+
+<h4 id="结构">结构</h4>
+
+<ul>
+  <li>左侧固定</li>
+  <li>右侧固定</li>
+  <li>两侧固定，中间自适应（圣杯、双飞翼）</li>
+</ul>
+
+<h5 id="左侧固定右侧自适应">左侧固定右侧自适应</h5>
+
+<p><strong>1、利用bfc块级格式上下文，实现布局</strong></p>
+
+<p>​	关键语法：（1）左边盒子：float：left;</p>
+
+<p>​				  	（2）右边盒子：<code class="highlighter-rouge">overflow: hidden;</code>（触发右边盒子BFC，避免与左侧浮动盒子重叠）</p>
+
+<p><strong>2、利用定位实现</strong></p>
+
+<p>​	关键语法：（1）父盒子设定padding-left，值为左侧盒子宽度。</p>
+
+<p>​					  （2）左侧盒子设定position: absolute; top: 0; left: 0;</p>
+
+<p><b> </b><strong>3、利用display: flex</strong></p>
+
+<p>​	关键语法： （1）父盒子设定display: flex;</p>
+
+<p>​				   	（2）右侧盒子设定flex: 1;</p>
+
+<h4 id="左右固定中间自适应">左右固定，中间自适应</h4>
+
+<p>**1、利用display：flex</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.father</span><span class="p">{</span>
+	<span class="py">dispaly</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.left</span> <span class="nc">.right</span><span class="p">{</span>
+	<span class="nl">width</span><span class="p">:</span> <span class="m">200px</span><span class="p">;</span>
+	<span class="nl">height</span><span class="p">:</span> <span class="m">400px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.center</span><span class="p">{</span>
+	<span class="nl">flex</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span>
+    <span class="nl">height</span><span class="p">:</span> <span class="m">400px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>2、利用float浮动</strong></p>
+
+<p>利用float必须让中间元素置于左右盒子之后，否则右盒子会在中间盒子之下。（BFC）</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.left</span><span class="p">{</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">200px</span><span class="p">;</span>
+    <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.right</span><span class="p">{</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">200px</span><span class="p">;</span>
+    <span class="nl">float</span><span class="p">:</span> <span class="nb">right</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.center</span><span class="p">{</span>
+    <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span> <span class="m">200px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>3、利用绝对定位</strong></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.father{
+	dispaly: relative;
+	height: 500px;
+}
+.left{
+	position: absolute;
+    width: 200px;
+	top: 0;
+	left: 0;
+}
+.center{
+	width: 200px;
+    margin: 0 200px;
+}
+.right{
+	position: absolute;
+    width: 200px;
+}
+</code></pre></div></div>
+
+<h4 id="双飞翼布局">双飞翼布局</h4>
+
+<p>中间优先渲染</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"content"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"main-wrap"</span><span class="nt">&gt;&lt;div</span> <span class="na">id=</span><span class="s">"main"</span><span class="nt">&gt;&lt;/div&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"left"</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"right"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.main-wrap</span><span class="p">{</span>
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">0</span> <span class="m">200px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.main</span><span class="p">{</span>
+    <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span><span class="p">;</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+    <span class="nl">height</span><span class="p">:</span> <span class="m">200px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.left</span><span class="p">{</span>
+    <span class="nl">position</span><span class="p">:</span> <span class="nb">relative</span><span class="p">;</span>
+ 	<span class="nl">float</span><span class="p">:</span> <span class="nb">left</span><span class="p">;</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span>
+    <span class="nl">height</span><span class="p">:</span> <span class="m">200px</span><span class="p">;</span>
+    <span class="nl">margin-left</span><span class="p">:</span> <span class="m">-100px</span><span class="p">;</span>
+    <span class="nl">left</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.right</span><span class="p">{</span>
+    <span class="nl">position</span><span class="p">:</span> <span class="nb">relative</span><span class="p">;</span>
+ 	<span class="nl">float</span><span class="p">:</span> <span class="nb">left</span><span class="p">;</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span>
+    <span class="nl">height</span><span class="p">:</span> <span class="m">200px</span><span class="p">;</span>
+    <span class="nl">margin-right</span><span class="p">:</span> <span class="m">-100px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+

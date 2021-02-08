@@ -1,0 +1,120 @@
+<h3 id="react中的useeffect">React中的UseEffect</h3>
+
+<blockquote>
+  <p>react官方推崇我们使用钩子函数（与之对应的是Es6类），因为钩子函数代码更加简洁。较为符合React本质。</p>
+</blockquote>
+
+<h4 id="useeffect出现的原因">UseEffect出现的原因</h4>
+
+<p>类与函数的差异</p>
+
+<ul>
+  <li>类是数据和逻辑的封装。组件的数据与操作应被写于同一个Class中。</li>
+  <li>函数一般来说需要做的就是返回一个值。如果有多个操作，每个操作应该写成一个单独的函数。而且数据的状态与操作应该分离。</li>
+</ul>
+
+<p>如下就是一个存函数：不改变数据的状态，只依据输入返回相应的代码。</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">funciton</span> <span class="nx">Welcome</span><span class="p">(</span><span class="nx">props</span><span class="p">){</span>
+    <span class="k">return</span> <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="si">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="什么是负效应">什么是负效应</h4>
+
+<blockquote>
+  <p>函数式编程将那些和数据计算无关的操作（生成日志、存储数据、改变应用状态等），都称之为负效应。</p>
+</blockquote>
+
+<h4 id="钩子hook的作用">钩子（hook）的作用</h4>
+
+<p>hook的作用就是用来处理React组件中副效应。函数组件的主体用来返回HTML代码，其他副效应操作都应该通过钩子引入。</p>
+
+<p>钩子有多种：</p>
+
+<p>useState（）：保存状态</p>
+
+<p>useContext（）：保存上下文</p>
+
+<p>useRef（）：保存引用</p>
+
+<p>…</p>
+
+<h4 id="useeffect的作用"><code class="highlighter-rouge">UseEffect</code>的作用</h4>
+
+<p>就是一个通用的<code class="highlighter-rouge">副效应钩子</code>。找不到对应钩子时就可以用它。</p>
+
+<p>语法：</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">useEffect</span><span class="p">(</span><span class="nx">sidefn</span><span class="p">,</span> <span class="p">[</span><span class="nx">依赖项</span><span class="p">])</span>
+</code></pre></div></div>
+
+<h5 id="用法">用法：</h5>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Welcome</span><span class="p">(</span><span class="nx">props</span><span class="p">){</span>
+    <span class="nx">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Loaded</span><span class="dl">'</span>
+    <span class="p">})</span>
+    <span class="k">return</span> <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="si">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>这个例子中，组件每渲染一次，该函数就会执行一次。组件在网页Dom初始化后，副效应函数也会执行。</p>
+
+<h5 id="第二个参数">第二个参数</h5>
+
+<p>useEffect的第二个参数可以指定一个依赖项，避免useEffect在每次渲染时都被执行，当依赖项发生改变时才会执行函数。</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Welcome</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="s2">`Hello, </span><span class="p">${</span><span class="nx">props</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+  <span class="p">},</span> <span class="p">[</span><span class="nx">props</span><span class="p">.</span><span class="nx">name</span><span class="p">]);</span>
+  <span class="k">return</span> <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Hello, <span class="si">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>第二个参数可以传入一个数组，声明依赖项。如果是传入空数组，则只在组件加载时才会执行，只执行一次。</p>
+
+<h4 id="useeffect常见使用场景">useEffect常见使用场景</h4>
+
+<ul>
+  <li>获取数据</li>
+  <li>事件监听</li>
+  <li>改变Dom</li>
+  <li>输出日志</li>
+</ul>
+
+<h4 id="useeffect的返回值">UseEffect的返回值</h4>
+
+<p>UseEffect允许返回一个函数，这个函数在组件被卸载时会触发。</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">subscription</span> <span class="o">=</span> <span class="nx">props</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">();</span>
+  <span class="k">return</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">subscription</span><span class="p">.</span><span class="nx">unsubscribe</span><span class="p">();</span>
+  <span class="p">};</span>
+<span class="p">},</span> <span class="p">[</span><span class="nx">props</span><span class="p">.</span><span class="nx">source</span><span class="p">]);</span>
+</code></pre></div></div>
+
+<p>每次使用UseEffect时，如果有多个副效应，则应该调用多个UseEffect，而不是合并写在一起。</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">function</span> <span class="nx">App</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">varA</span><span class="p">,</span> <span class="nx">setVarA</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">varB</span><span class="p">,</span> <span class="nx">setVarB</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+  <span class="nx">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">timeout</span> <span class="o">=</span> <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">setVarA</span><span class="p">(</span><span class="nx">varA</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">1000</span><span class="p">);</span>
+    <span class="k">return</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">clearTimeout</span><span class="p">(</span><span class="nx">timeout</span><span class="p">);</span>
+  <span class="p">},</span> <span class="p">[</span><span class="nx">varA</span><span class="p">]);</span>
+
+  <span class="nx">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">timeout</span> <span class="o">=</span> <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">setVarB</span><span class="p">(</span><span class="nx">varB</span> <span class="o">+</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">2000</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">clearTimeout</span><span class="p">(</span><span class="nx">timeout</span><span class="p">);</span>
+  <span class="p">},</span> <span class="p">[</span><span class="nx">varB</span><span class="p">]);</span>
+
+  <span class="k">return</span> <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span><span class="si">{</span><span class="nx">varA</span><span class="si">}</span>, <span class="si">{</span><span class="nx">varB</span><span class="si">}</span><span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
