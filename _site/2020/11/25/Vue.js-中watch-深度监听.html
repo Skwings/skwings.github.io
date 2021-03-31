@@ -1,0 +1,131 @@
+<h3 id="vuejs-中watch深度监听">Vue.js 中watch（深度监听）</h3>
+
+<div class="language-vue highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;templete&gt;</span>
+	<span class="nt">&lt;div&gt;</span>
+      <span class="nt">&lt;p&gt;</span>FullName: <span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;p&gt;</span>FirstName: <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">v-model=</span><span class="s">"firstName"</span><span class="nt">&gt;&lt;/p&gt;</span>
+	<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/templete&gt;</span>
+ 
+<span class="nt">&lt;</span><span class="k">script</span><span class="nt">&gt;</span>
+  <span class="nx">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">#root</span><span class="dl">'</span><span class="p">,</span>
+  <span class="nx">data</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nl">firstName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Dawei</span><span class="dl">'</span><span class="p">,</span>
+    <span class="nx">lastName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Lou</span><span class="dl">'</span><span class="p">,</span>
+    <span class="nx">fullName</span><span class="p">:</span> <span class="dl">''</span>
+  <span class="p">},</span>
+  <span class="nx">watch</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nx">firstName</span><span class="p">(</span><span class="nx">newName</span><span class="p">,</span> <span class="nx">oldName</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">fullName</span> <span class="o">=</span> <span class="nx">newName</span> <span class="o">+</span> <span class="dl">'</span><span class="s1"> </span><span class="dl">'</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>  
+<span class="nt">&lt;/</span><span class="k">script</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<p>上面代码的作用是，当firstName的值发生改变时，fullName会自动进行拼接。</p>
+
+<p>上述<code class="highlighter-rouge">watch</code>代码等同于</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">watch</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nx">firstName</span><span class="p">{</span>
+    	<span class="nx">handler</span><span class="p">(</span><span class="nx">newValue</span><span class="p">,</span> <span class="nx">OldValue</span><span class="p">){</span>
+    		<span class="k">this</span><span class="p">.</span><span class="nx">fullName</span> <span class="o">=</span> <span class="nx">newName</span> <span class="o">+</span> <span class="dl">'</span><span class="s1"> </span><span class="dl">'</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">;</span>
+    	<span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span> 
+</code></pre></div></div>
+
+<p>给firstName绑定的<code class="highlighter-rouge">handler</code>就是用来监听firstName的变化，之前写的watch其实默认就绑定了<code class="highlighter-rouge">handler</code>去处理逻辑。</p>
+
+<h4 id="immediate属性">immediate属性</h4>
+
+<blockquote>
+  <p>watch的特点是只有绑定的属性发生变化时才会执行。如果我们想要在一开始时就立即执行，那么我们可以使用<code class="highlighter-rouge">immediate</code>这个属性。</p>
+</blockquote>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">watch</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nx">firstName</span><span class="p">{</span>
+    	<span class="nx">handler</span><span class="p">(</span><span class="nx">newValue</span><span class="p">,</span> <span class="nx">OldValue</span><span class="p">){</span>
+    		<span class="k">this</span><span class="p">.</span><span class="nx">fullName</span> <span class="o">=</span> <span class="nx">newName</span> <span class="o">+</span> <span class="dl">'</span><span class="s1"> </span><span class="dl">'</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">;</span>
+    	<span class="p">}</span>
+    <span class="p">},</span>
+    <span class="c1">//此时watch绑定的属性会立即执行，默认值false</span>
+	<span class="nx">immediate</span><span class="p">:</span> <span class="kc">true</span> 
+  <span class="p">}</span> 
+</code></pre></div></div>
+
+<h4 id="deep属性">deep属性</h4>
+
+<blockquote>
+  <p>deep属性的作用是代表是否深度监听，默认值false。</p>
+</blockquote>
+
+<p>来看一个例子</p>
+
+<div class="language-vue highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;templete&gt;</span>
+	<span class="nt">&lt;div&gt;</span>
+      <span class="nt">&lt;p&gt;</span>FullName: <span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;p&gt;</span>FirstName: <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">v-model=</span><span class="s">"obj.a"</span><span class="nt">&gt;&lt;/p&gt;</span>
+	<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/templete&gt;</span>
+ 
+<span class="nt">&lt;</span><span class="k">script</span><span class="nt">&gt;</span>
+  <span class="nx">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">#root</span><span class="dl">'</span><span class="p">,</span>
+  <span class="nx">data</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nl">obj</span><span class="p">:</span> <span class="p">{</span>
+    	<span class="na">a</span><span class="p">:</span> <span class="mi">123</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="nx">watch</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nl">obj</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nx">handler</span><span class="p">(){</span>
+      	<span class="c1">//···</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>  
+<span class="nt">&lt;/</span><span class="k">script</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<p>此时我们改变输入框中的值，并不会触发给obj绑定的handler事件。因为受到js的限制，vue并不能检测到对象的属性的添加或者删除。由于Vue会在初始化实例时，对属性执行getter、setter的转化过程，所以只有在data上的属性才能被Vue转换，这样才能实现响应式数据。</p>
+
+<p>上述例子，只有在对obj进行赋值时才会执行hander对应逻辑。</p>
+
+<p>那么，该如何实现监听对象<code class="highlighter-rouge">obj.a</code>的值呢？</p>
+
+<p>此时就可以用到<code class="highlighter-rouge">deep</code>属性了。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">watch</span><span class="p">:</span> <span class="p">{</span>
+  <span class="nl">obj</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nx">handler</span><span class="p">(</span><span class="nx">newName</span><span class="p">,</span> <span class="nx">oldName</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">obj.a changed</span><span class="dl">'</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="na">deep</span><span class="p">:</span> <span class="kc">true</span> <span class="c1">//开启深度监听</span>
+  <span class="p">}</span>
+<span class="p">}</span> 
+</code></pre></div></div>
+
+<p>这时候obj对象内的任何改变都会触发对应逻辑。</p>
+
+<p>但这样子开销未免太过于庞大了。obj内任何改变都会触发，这显然不是我们想要的。</p>
+
+<p>这时候我们可以利用字符串进行监听</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">watch</span><span class="p">:</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">obj.a</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nx">handler</span><span class="p">(</span><span class="nx">newName</span><span class="p">,</span> <span class="nx">oldName</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">obj.a changed</span><span class="dl">'</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="nx">deep</span><span class="p">:</span> <span class="kc">true</span> <span class="c1">//开启深度监听</span>
+  <span class="p">}</span>
+<span class="p">}</span> 
+</code></pre></div></div>
+
+<h4 id="注销watch">注销watch</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">unWatch</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">$watch</span><span class="p">(</span><span class="dl">'</span><span class="s1">text</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">newVal</span><span class="p">,</span> <span class="nx">oldVal</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">newVal</span><span class="p">}</span><span class="s2"> : </span><span class="p">${</span><span class="nx">oldVal</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+<span class="p">})</span>
+ 
+<span class="nx">unWatch</span><span class="p">();</span> <span class="c1">// 手动注销watch</span>
+</code></pre></div></div>
+

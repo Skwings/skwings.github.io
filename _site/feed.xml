@@ -1,4 +1,43 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-02-08T15:44:37+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">绯羽的博客</title><subtitle>白日梦想家</subtitle><author><name>true</name></author><entry><title type="html">Hook的出现是否意味着class将会被替代</title><link href="http://localhost:4000/2021/01/03/Hook%E7%9A%84%E5%87%BA%E7%8E%B0%E6%98%AF%E5%90%A6%E6%84%8F%E5%91%B3%E7%9D%80class%E5%B0%86%E4%BC%9A%E8%A2%AB%E6%9B%BF%E4%BB%A3.html" rel="alternate" type="text/html" title="Hook的出现是否意味着class将会被替代" /><published>2021-01-03T00:00:00+08:00</published><updated>2021-01-03T00:00:00+08:00</updated><id>http://localhost:4000/2021/01/03/Hook%E7%9A%84%E5%87%BA%E7%8E%B0%E6%98%AF%E5%90%A6%E6%84%8F%E5%91%B3%E7%9D%80class%E5%B0%86%E4%BC%9A%E8%A2%AB%E6%9B%BF%E4%BB%A3</id><content type="html" xml:base="http://localhost:4000/2021/01/03/Hook%E7%9A%84%E5%87%BA%E7%8E%B0%E6%98%AF%E5%90%A6%E6%84%8F%E5%91%B3%E7%9D%80class%E5%B0%86%E4%BC%9A%E8%A2%AB%E6%9B%BF%E4%BB%A3.html">&lt;h3 id=&quot;hook的出现是否意味着class将会被替代&quot;&gt;Hook的出现是否意味着class将会被替代&lt;/h3&gt;</content><author><name>true</name></author><summary type="html">Hook的出现是否意味着class将会被替代</summary></entry><entry><title type="html">React中的useeffect</title><link href="http://localhost:4000/2020/12/18/React%E4%B8%AD%E7%9A%84UseEffect.html" rel="alternate" type="text/html" title="React中的useeffect" /><published>2020-12-18T00:00:00+08:00</published><updated>2020-12-18T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/18/React%E4%B8%AD%E7%9A%84UseEffect</id><content type="html" xml:base="http://localhost:4000/2020/12/18/React%E4%B8%AD%E7%9A%84UseEffect.html">&lt;h3 id=&quot;react中的useeffect&quot;&gt;React中的UseEffect&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-03-19T18:21:46+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">绯羽的博客</title><subtitle>白日梦想家</subtitle><author><name>true</name></author><entry><title type="html">2月份个人计划 (完成chat Ui项目剩余部分构建)</title><link href="http://localhost:4000/2021/02/01/2%E6%9C%88%E4%BB%BD%E4%B8%AA%E4%BA%BA%E8%AE%A1%E5%88%92-(%E5%AE%8C%E6%88%90Chat-UI%E9%A1%B9%E7%9B%AE%E5%89%A9%E4%BD%99%E9%83%A8%E5%88%86%E6%9E%84%E5%BB%BA).html" rel="alternate" type="text/html" title="2月份个人计划 (完成chat Ui项目剩余部分构建)" /><published>2021-02-01T00:00:00+08:00</published><updated>2021-02-01T00:00:00+08:00</updated><id>http://localhost:4000/2021/02/01/2%E6%9C%88%E4%BB%BD%E4%B8%AA%E4%BA%BA%E8%AE%A1%E5%88%92--(%E5%AE%8C%E6%88%90Chat-UI%E9%A1%B9%E7%9B%AE%E5%89%A9%E4%BD%99%E9%83%A8%E5%88%86%E6%9E%84%E5%BB%BA)</id><content type="html" xml:base="http://localhost:4000/2021/02/01/2%E6%9C%88%E4%BB%BD%E4%B8%AA%E4%BA%BA%E8%AE%A1%E5%88%92-(%E5%AE%8C%E6%88%90Chat-UI%E9%A1%B9%E7%9B%AE%E5%89%A9%E4%BD%99%E9%83%A8%E5%88%86%E6%9E%84%E5%BB%BA).html">&lt;h3 id=&quot;2月份个人计划chat-ui项目构建&quot;&gt;2月份个人计划–(Chat-UI项目构建)&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/Skwings/Chat-UI-react&quot;&gt;项目地址&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+ 		开始学习React是11月份，基本是靠着工作剩余时间抽空看官方文档，一步步跟着做。
+
+  &lt;p&gt;​		有幸自己有同学从事的开发用的就是react框架，于是乎就边看企业项目代码，与此同时自己也通过手写react的demo来学习各种琐碎的知识点。到一月份的时候已经对react有了一个较为全面的了解。但距离利用react灵活处理问题还有一定距离。&lt;/p&gt;
+
+  &lt;p&gt;​		于是作为自己的练手项目，了解react构建UI组件的思想，自己开始构建起了Chat-UI这个项目。&lt;/p&gt;
+&lt;/blockquote&gt;</content><author><name>true</name></author><summary type="html">2月份个人计划–(Chat-UI项目构建)</summary></entry><entry><title type="html">Hook的出现是否意味着class将会被替代</title><link href="http://localhost:4000/2021/01/03/Hook%E7%9A%84%E5%87%BA%E7%8E%B0%E6%98%AF%E5%90%A6%E6%84%8F%E5%91%B3%E7%9D%80class%E5%B0%86%E4%BC%9A%E8%A2%AB%E6%9B%BF%E4%BB%A3.html" rel="alternate" type="text/html" title="Hook的出现是否意味着class将会被替代" /><published>2021-01-03T00:00:00+08:00</published><updated>2021-01-03T00:00:00+08:00</updated><id>http://localhost:4000/2021/01/03/Hook%E7%9A%84%E5%87%BA%E7%8E%B0%E6%98%AF%E5%90%A6%E6%84%8F%E5%91%B3%E7%9D%80class%E5%B0%86%E4%BC%9A%E8%A2%AB%E6%9B%BF%E4%BB%A3</id><content type="html" xml:base="http://localhost:4000/2021/01/03/Hook%E7%9A%84%E5%87%BA%E7%8E%B0%E6%98%AF%E5%90%A6%E6%84%8F%E5%91%B3%E7%9D%80class%E5%B0%86%E4%BC%9A%E8%A2%AB%E6%9B%BF%E4%BB%A3.html">&lt;h3 id=&quot;hook的出现是否意味着class将会被替代&quot;&gt;Hook的出现是否意味着class将会被替代&lt;/h3&gt;</content><author><name>true</name></author><summary type="html">Hook的出现是否意味着class将会被替代</summary></entry><entry><title type="html">Js实现深浅拷贝的方式</title><link href="http://localhost:4000/2020/12/28/JS%E5%AE%9E%E7%8E%B0%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D%E7%9A%84%E6%96%B9%E5%BC%8F.html" rel="alternate" type="text/html" title="Js实现深浅拷贝的方式" /><published>2020-12-28T00:00:00+08:00</published><updated>2020-12-28T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/28/JS%E5%AE%9E%E7%8E%B0%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D%E7%9A%84%E6%96%B9%E5%BC%8F</id><content type="html" xml:base="http://localhost:4000/2020/12/28/JS%E5%AE%9E%E7%8E%B0%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D%E7%9A%84%E6%96%B9%E5%BC%8F.html">&lt;h3 id=&quot;js实现深浅拷贝的方式&quot;&gt;JS实现深浅拷贝的方式&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;浅拷贝：B赋值A，A修改，B随之修改。&lt;/li&gt;
+    &lt;li&gt;深拷贝： B赋值A，A修改，B不随之修改。&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;浅拷贝&quot;&gt;浅拷贝&lt;/h4&gt;
+
+&lt;h5 id=&quot;1objectassign&quot;&gt;1、Object.assign&lt;/h5&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;obj2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;assign&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;obj2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;2直接使用号赋值&quot;&gt;2、直接使用=号赋值🐕&lt;/h5&gt;
+
+&lt;h4 id=&quot;深拷贝&quot;&gt;深拷贝&lt;/h4&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;deepClone&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;objClone&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;isArray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)?[]:{}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>true</name></author><summary type="html">JS实现深浅拷贝的方式</summary></entry><entry><title type="html">React中的useeffect</title><link href="http://localhost:4000/2020/12/18/React%E4%B8%AD%E7%9A%84UseEffect.html" rel="alternate" type="text/html" title="React中的useeffect" /><published>2020-12-18T00:00:00+08:00</published><updated>2020-12-18T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/18/React%E4%B8%AD%E7%9A%84UseEffect</id><content type="html" xml:base="http://localhost:4000/2020/12/18/React%E4%B8%AD%E7%9A%84UseEffect.html">&lt;h3 id=&quot;react中的useeffect&quot;&gt;React中的UseEffect&lt;/h3&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;react官方推崇我们使用钩子函数（与之对应的是Es6类），因为钩子函数代码更加简洁。较为符合React本质。&lt;/p&gt;
@@ -381,60 +420,4 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;此时返回的就是正常的&amp;lt;td&amp;gt;&lt;/p&gt;</content><author><name>feiYu</name></author><category term="React" /><summary type="html">React中的Fragments</summary></entry><entry><title type="html">对于Vuex中的actions与mutations区别的理解</title><link href="http://localhost:4000/2020/12/09/%E5%AF%B9%E4%BA%8EVuex%E4%B8%AD%E7%9A%84actions%E4%B8%8Emutations%E5%8C%BA%E5%88%AB%E7%9A%84%E7%90%86%E8%A7%A3.html" rel="alternate" type="text/html" title="对于Vuex中的actions与mutations区别的理解" /><published>2020-12-09T00:00:00+08:00</published><updated>2020-12-09T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/09/%E5%AF%B9%E4%BA%8EVuex%E4%B8%AD%E7%9A%84actions%E4%B8%8Emutations%E5%8C%BA%E5%88%AB%E7%9A%84%E7%90%86%E8%A7%A3</id><content type="html" xml:base="http://localhost:4000/2020/12/09/%E5%AF%B9%E4%BA%8EVuex%E4%B8%AD%E7%9A%84actions%E4%B8%8Emutations%E5%8C%BA%E5%88%AB%E7%9A%84%E7%90%86%E8%A7%A3.html">&lt;h3 id=&quot;对于vuex中的actions与mutations区别的理解&quot;&gt;对于Vuex中的actions与mutations区别的理解&lt;/h3&gt;
-
-&lt;p&gt;actions与mutations同样可以实现异步操作，为什么异步操作要用actions而不是mutations呢？&lt;/p&gt;
-
-&lt;p&gt;官方文档中的说明&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;现在想象，我们正在 debug 一个 app 并且观察 devtool 中的 mutation 日志。每一条 mutation 被记录，devtools 都需要捕捉到前一状态和后一状态的快照。然而，在上面的例子中 mutation 中的异步函数中的回调让这不可能完成：因为当 mutation 触发的时候，回调函数还没有被调用，devtools 不知道什么时候回调函数实际上被调用——实质上任何在回调函数中进行的状态的改变都是不可追踪的。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;实际上在mutation中执行异步操作，并不适合devtools进行调试，追踪状态的变更。&lt;/p&gt;
-
-&lt;p&gt;改变state唯一的方法是提交mutation，所在在action中需要commit触发mutation进行状态更改。&lt;/p&gt;
-
-&lt;h4 id=&quot;所以&quot;&gt;所以&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Mutation中写的是同步函数，actions中写的需要是异步函数，这是一种约定，为了更好的追踪vuex的状态变更，我们都需要按照这种原则进行开发。&lt;/li&gt;
-  &lt;li&gt;更改state的唯一方法是提交mutation，action中需要通过commit触发mutation。&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>feiYu</name></author><category term="Vue" /><summary type="html">对于Vuex中的actions与mutations区别的理解</summary></entry><entry><title type="html">对Vuex状态管理的理解</title><link href="http://localhost:4000/2020/12/07/%E5%AF%B9Vuex%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E7%9A%84%E7%90%86%E8%A7%A3.html" rel="alternate" type="text/html" title="对Vuex状态管理的理解" /><published>2020-12-07T00:00:00+08:00</published><updated>2020-12-07T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/07/%E5%AF%B9Vuex%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E7%9A%84%E7%90%86%E8%A7%A3</id><content type="html" xml:base="http://localhost:4000/2020/12/07/%E5%AF%B9Vuex%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E7%9A%84%E7%90%86%E8%A7%A3.html">&lt;h3 id=&quot;对vuex状态管理的理解&quot;&gt;对Vuex状态管理的理解&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;vue官方文档对于Vuex的定义：是一种状态管理模式，采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态已一种可预测的方式发生变化。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;一个简单的单向数据流如下&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://vuex.vuejs.org/flow.png&quot; alt=&quot;单向数据流&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;state：驱动应用的数据源&lt;/p&gt;
-
-&lt;p&gt;view：以声明方式将state映射到视图&lt;/p&gt;
-
-&lt;p&gt;actions：导致状态变化，响应在view上的用户输入（简单说就是导致数据状态变化的用户输入）&lt;/p&gt;
-
-&lt;p&gt;但是！&lt;/p&gt;
-
-&lt;p&gt;当我们的应用遇到多个组件共享状态时，单向的数据流的简洁性很容易被破坏：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;当多个视图依赖同一状态时&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;来自不同的视图行为需要变更同一状态。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;对于问题一，传参的方法对于多层嵌套的组件非常麻烦。并且难以实现兄弟组件的状态传递。&lt;/p&gt;
-
-&lt;p&gt;对于问题二，我们通常用拷贝等方法进行解决，这样常常导致代码难以维护。&lt;/p&gt;
-
-&lt;p&gt;为了处理以上问题，就出现了现在的状态共享，将组件的状态提取出来，以一个全局的单例模式进行状态管理。&lt;/p&gt;
-
-&lt;p&gt;通过 &lt;code class=&quot;highlighter-rouge&quot;&gt;定义与隔离&lt;/code&gt; 状态管理中的各种概念并通过强制规则维持视图与状态间的独立性。&lt;/p&gt;
-
-&lt;p&gt;以上就是vuex的基本概念&lt;/p&gt;</content><author><name>feiYu</name></author><category term="Vue" /><summary type="html">对Vuex状态管理的理解</summary></entry></feed>
+&lt;p&gt;此时返回的就是正常的&amp;lt;td&amp;gt;&lt;/p&gt;</content><author><name>feiYu</name></author><category term="React" /><summary type="html">React中的Fragments</summary></entry></feed>

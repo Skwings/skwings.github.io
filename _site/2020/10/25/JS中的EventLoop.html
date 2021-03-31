@@ -178,12 +178,62 @@ var _hmt = _hmt || [];
 
 <p>JS存在monitoring process进程，会持续不断的检查主线程执行栈是否为空，一旦为空就会去Queue那里检查是否有等待被调用的函数。</p>
 
-<h4 id="异步任务宏任务微任务">异步任务（宏任务、微任务）</h4>
+<h4 id="异步任务">异步任务</h4>
 
-<p>微任务与宏任务皆为异步任务。那么它们的执行顺序是怎样的呢？</p>
+<p>宏任务：整体代码script， setTimeout， setInterval()</p>
+
+<p>微任务：Promise.then(), process.nextTick(node特有)</p>
+
+<p>宏任务与微任务会放入不同的EventQueue中。那么它们的执行顺序是怎样的呢？</p>
 
 <p><img src="..\..\..\assets\images\eventLoop2.jpg" alt="" /></p>
 
+<p>那么此时来看一个例子：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">task</span><span class="p">()</span>
+<span class="p">},</span><span class="mi">3000</span><span class="p">)</span>
+
+<span class="nx">sleep</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>此时我们发现task（）任务执行时间远不止3秒。</p>
+
+<p>此段代码的执行顺序：</p>
+
+<blockquote>
+  <ul>
+    <li>task进入EventTable并注册，等待计时</li>
+    <li>执行sleep函数</li>
+    <li>3秒到了，task进入eventQueue</li>
+    <li>sleep执行完毕，查询eventQueue，执行task</li>
+  </ul>
+</blockquote>
+
+<p>我们常看见的<code class="highlighter-rouge">setTimeout(fn, 0)</code>的作用是，当主线程执行完后立马执行。</p>
+
+<p>上述代码不包含微任务，接下来看包含微任务的代码：</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">setTimeout</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">},</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">promise</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">then</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">})</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">console</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li>首先setTimeout被放入EventTable中，一秒后将<code class="highlighter-rouge">console.log('setTimeout')</code>放入宏任务EventQueue中。</li>
+  <li>执行Promise中的同步代码<code class="highlighter-rouge">console.log('promise')</code>，将then放入微任务队列中</li>
+  <li>执行同步代码<code class="highlighter-rouge">console.log('console');</code></li>
+  <li>执行宏任务<code class="highlighter-rouge">console.log('setTimeout');</code></li>
+  <li>执行微任务<code class="highlighter-rouge">console.log('then')</code></li>
+</ul>
 
   <!-- 引入share模块 -->
   

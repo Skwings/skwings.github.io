@@ -112,8 +112,8 @@ var _hmt = _hmt || [];
   <!-- 页面宽度大于800px -->
   <div class="left-area">
     
-      <a href="/2020/12/01/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E9%97%B4%E7%9A%84%E4%BA%A4%E4%BA%92%E5%8D%8F%E8%AE%AE.html" class="btn bounceInLeft animated" onmouseover="showLeft();this.style.color='rgb(255,210,32)';" onmouseout="goneLeft();this.style.color='rgba(0,0,0,.2)';"><</a>
-      <div id="left-tab" style="display:none;"><span class="left-san"></span><span class="left-main" style="color:rgb(255,210,32);"><sapn class="main">浏览器与服务器之间的交互协议</sapn></span></div>
+      <a href="/2020/11/25/Vue.js-%E4%B8%ADwatch-%E6%B7%B1%E5%BA%A6%E7%9B%91%E5%90%AC.html" class="btn bounceInLeft animated" onmouseover="showLeft();this.style.color='rgb(255,210,32)';" onmouseout="goneLeft();this.style.color='rgba(0,0,0,.2)';"><</a>
+      <div id="left-tab" style="display:none;"><span class="left-san"></span><span class="left-main" style="color:rgb(255,210,32);"><sapn class="main">Vue.js 中watch（深度监听）</sapn></span></div>
     
   </div>
   <div class="post-titlearea">
@@ -132,7 +132,7 @@ var _hmt = _hmt || [];
   <!-- 页面宽度小于800px -->
   <div class="post-changearea">
     
-      <a href="/2020/12/01/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E9%97%B4%E7%9A%84%E4%BA%A4%E4%BA%92%E5%8D%8F%E8%AE%AE.html" class="leftchange" style="border-right: 1px solid rgb(255,210,32);border-bottom: 2px solid rgb(255,210,32);"><span>上一篇<br><br>浏览器与服务器之间的交互协议</span></a>
+      <a href="/2020/11/25/Vue.js-%E4%B8%ADwatch-%E6%B7%B1%E5%BA%A6%E7%9B%91%E5%90%AC.html" class="leftchange" style="border-right: 1px solid rgb(255,210,32);border-bottom: 2px solid rgb(255,210,32);"><span>上一篇<br><br>Vue.js 中watch（深度监听）</span></a>
     
     
       <a href="/2020/11/24/DIff%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0.html" class="rightchange" style="border-left: 1px solid rgb(255,210,32);border-bottom: 2px solid rgb(255,210,32);"><span>下一篇<br><br>对于Vue中的diff算法的学习</span></a>
@@ -197,7 +197,45 @@ var _hmt = _hmt || [];
 </code></pre></div></div>
 
 <h5 id="错误栈">错误栈</h5>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+<blockquote>
+  <p>如果Promise连续调用，对于错误处理是很麻烦的，无法知道错误出自哪里。</p>
+</blockquote>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="kd">const</span> <span class="nx">makeRequest</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">callAPromise</span><span class="p">()</span>
+            <span class="p">.</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">callAPromise</span><span class="p">())</span>
+            <span class="p">.</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">callAPromise</span><span class="p">())</span>
+            <span class="p">.</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">callAPromise</span><span class="p">())</span>
+            <span class="p">.</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">callAPromise</span><span class="p">())</span>
+            <span class="p">.</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+                <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="dl">"</span><span class="s2">oops</span><span class="dl">"</span><span class="p">);</span>
+            <span class="p">})</span>
+    <span class="p">}</span>
+
+    <span class="nx">makeRequest</span><span class="p">().</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+        <span class="c1">// output</span>
+        <span class="c1">// Error: oops at callAPromise.then.then.then.then.then (index.js:8:13)</span>
+    <span class="p">})</span>
+</code></pre></div></div>
+
+<p>async/await中的错误栈会指向所在的函数。在开发环境中，这点优势并不大，但当在分析生产环境的错误日志时，它非常有用。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="kd">const</span> <span class="nx">makeRequest</span> <span class="o">=</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">await</span> <span class="nx">callAPromise</span><span class="p">()</span>
+        <span class="k">await</span> <span class="nx">callAPromise</span><span class="p">()</span>
+        <span class="k">await</span> <span class="nx">callAPromise</span><span class="p">()</span>
+        <span class="k">await</span> <span class="nx">callAPromise</span><span class="p">()</span>
+        <span class="k">await</span> <span class="nx">callAPromise</span><span class="p">()</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="dl">"</span><span class="s2">oops</span><span class="dl">"</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nx">makeRequest</span><span class="p">().</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+        <span class="c1">// output</span>
+        <span class="c1">// Error: oops at makeRequest (index.js:7:9)</span>
+    <span class="p">})</span>
 </code></pre></div></div>
 
 

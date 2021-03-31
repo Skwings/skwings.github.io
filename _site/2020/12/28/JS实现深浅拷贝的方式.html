@@ -1,0 +1,31 @@
+<h3 id="js实现深浅拷贝的方式">JS实现深浅拷贝的方式</h3>
+
+<blockquote>
+  <ul>
+    <li>浅拷贝：B赋值A，A修改，B随之修改。</li>
+    <li>深拷贝： B赋值A，A修改，B不随之修改。</li>
+  </ul>
+</blockquote>
+
+<h4 id="浅拷贝">浅拷贝</h4>
+
+<h5 id="1objectassign">1、Object.assign</h5>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">a</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="na">b</span><span class="p">:</span> <span class="mi">3</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">obj2</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj2</span><span class="p">.</span><span class="nx">a</span><span class="p">);</span> <span class="c1">//2</span>
+</code></pre></div></div>
+
+<h5 id="2直接使用号赋值">2、直接使用=号赋值🐕</h5>
+
+<h4 id="深拷贝">深拷贝</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">deepClone</span><span class="p">(</span><span class="nx">obj</span><span class="p">){</span>
+    <span class="kd">let</span> <span class="nx">objClone</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">isArray</span><span class="p">(</span><span class="nx">obj</span><span class="p">)?[]:{}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
