@@ -1,0 +1,79 @@
+### GC算法： 浏览器垃圾回收算法
+
+#### 什么是GC里的垃圾？
+
++ 程序中不再需要使用的对象
+
+       ```js
+function func(){
+	name = 'wzj';
+	return `${name} is a coder`
+}
+func();
+       ```
+
++ 程序中不能再访问的对象
+
+```js
+function func(){
+
+	const name = 'wzj'
+
+	return `${name} is a coder`
+
+ }
+```
+
+#### 引用计数算法
+
+> 核心思想： 设置引用数，判断当前引用是否为0。用到的就是引用计数器。
+
++ 引用关系改变时修改引用数字
++ 引用数为0时立即回收
+
+```js
+function fn(){
+    num1 = 1;
+    num2 = 2;
+}
+fn();//此时函数执行完毕，num1 与 num2会被挂载在全局对象上，此时引用计数不为0，无法被释放
+```
+
+```js
+const user1 = {age: 11}
+const user2 = {age: 22}
+const user3 = {age: 33}
+
+const list = [user1.age, user2.age, user3.age];
+```
+
+
+
+### 标记清除法
+
+[原文链接]: https://blog.csdn.net/qq_37465638/article/details/105686868
+
+步骤: 
+
++ 标记：一个对象有头部与域，，在对象头部中设置mark位。从根开始，通过指针找到所有对象，将其mark设置为true，即可完成标记。
++ ![标记前堆的状态](https://img-blog.csdnimg.cn/20200422170030434.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM3NDY1NjM4,size_16,color_FFFFFF,t_70)
++ ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200422170133887.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM3NDY1NjM4,size_16,color_FFFFFF,t_70)
++ 清除：接下来，开始遍历堆，凡是mark==false的对象，都是要回收的对象，系统会维护一个空闲链表来进行回收。
+
+优点：
+
++ 解决了引用计数法不能解决循环引用的问题
+
+缺点：
+
++ 空间碎片化：每次清理都会出现多个空闲分块，会导致当需要申请较大内存时资源紧张。
++ 速度慢：需要分配时，每次都必须遍历空闲列表，找到一块足够大的空间进行分配。
+
+#### 标记整理法
+
+相当于标记清除法的增强，在标记之前会对碎片空间进行整理操作，使其连续。
+
+
+
+
+

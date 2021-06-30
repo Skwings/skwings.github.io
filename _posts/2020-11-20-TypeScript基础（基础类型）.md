@@ -25,7 +25,7 @@ subtitle: " "
 ##### 布尔值
 
 ```typescript
-let isDone: boolean = false;
+let isDone: boolean = false; //类型注解
 ```
 
 ##### 数字
