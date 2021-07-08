@@ -1,3 +1,23 @@
+---
+
+layout: post
+
+title: '关于React中的为什么需要用bind（this）'
+
+date: 2021-04-21
+
+author: feiYu
+
+color: rgb(255,210,32)
+
+cover: '../assets/react.jpg'
+
+tags: React
+
+subtitle: ""
+
+---
+
 ### 关于React中的为什么需要用bind（this）
 
 > 当React实例中的方法中用到了this属性时，通常会在constructor中进行this绑定。来看个例子了解为什么需要这么做。

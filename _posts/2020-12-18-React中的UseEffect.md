@@ -1,3 +1,23 @@
+---
+
+layout: post
+
+title: 'React中的UseEffect'
+
+date: 2020-12-18
+
+author: feiYu
+
+color: rgb(255,210,32)
+
+cover: '../assets/react.jpg'
+
+tags: React
+
+subtitle: ""
+
+---
+
 ### React中的UseEffect
 
 > react官方推崇我们使用钩子函数（与之对应的是Es6类），因为钩子函数代码更加简洁。较为符合React本质。
