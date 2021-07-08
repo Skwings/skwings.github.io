@@ -13,7 +13,7 @@ cover: '../assets/ECMAscript.jpg'
 
 tags: JS
 
-subtitle: ""
+subtitle: " "
 
 ---
 

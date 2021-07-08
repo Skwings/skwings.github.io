@@ -2,7 +2,7 @@
 
 layout: post
 
-title: 'Es2015的解构'
+title: 'ECMAScript编码规范'
 
 date: 2021-04-03
 
@@ -14,7 +14,7 @@ cover: '../assets/ECMAScript.jpg'
 
 tags: Js
 
-subtitle: ""
+subtitle: " "
 
 ---
 

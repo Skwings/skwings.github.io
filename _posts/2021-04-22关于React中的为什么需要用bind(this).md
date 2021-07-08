@@ -13,8 +13,8 @@ color: rgb(255,210,32)
 cover: '../assets/react.jpg'
 
 tags: React
-
-subtitle: ""
+ 
+subtitle: " "
 
 ---
 

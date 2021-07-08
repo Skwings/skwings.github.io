@@ -14,7 +14,7 @@ cover: '../assets/react.jpg'
 
 tags: React
 
-subtitle: ""
+subtitle: " "
 
 ---
 
